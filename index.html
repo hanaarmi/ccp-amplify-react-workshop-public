@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="description" content="">
+<meta name="author" content="Jungkon Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Amplify 로 React 기반 Amazon Connect CCP 구성하고, Cognito 로 SAML 기반 로그인 통합하기 :: </title>
+
+    
+    <link href="/css/nucleus.css?1636617871" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1636617871" rel="stylesheet">
+    <link href="/css/hybrid.css?1636617871" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1636617871" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1636617871" rel="stylesheet">
+    <link href="/css/auto-complete.css?1636617871" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1636617871" rel="stylesheet">
+    <link href="/css/theme.css?1636617871" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1636617871" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1636617871" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1636617871"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px" />
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1636617871"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1636617871"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1636617871"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/1.amplify/" title="1. Amplify 로 React App 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.amplify/">
+          1. Amplify 로 React App 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/2.connect/" title="2. Amazon Connect 인스턴스 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2.connect/">
+          2. Amazon Connect 인스턴스 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/3.ccp/" title="3. CCP 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3.ccp/">
+          3. CCP 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/4.cognito/" title="4. Cognito 로 로그인/로그아웃 구현하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.cognito/">
+          4. Cognito 로 로그인/로그아웃 구현하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/5.iam/" title="5. IAM 서비스에서 Role 설정하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5.iam/">
+          5. IAM 서비스에서 Role 설정하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/6.addrestapi/" title="6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6.addrestapi/">
+          6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/7.attribute/" title="7. Contact Flow 에서 설정한 Attribute 값 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7.attribute/">
+          7. Contact Flow 에서 설정한 Attribute 값 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/8.customerprofiles/" title="8. Customer Profiles 기능 추가하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8.customerprofiles/">
+          8. Customer Profiles 기능 추가하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credits</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2021 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+        <div id="head-tags">
+        
+        </div>
+        
+          <div id="chapter">
+        
+        <div id="body-inner">
+          
+
+        
+
+
+<span id="sidebar-toggle-span">
+<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
+</span>
+
+ 
+<h1 id="amplify-로-react-기반-amazon-connect-ccp-구성하고-cognito-로-saml-기반-로그인-통합하기">Amplify 로 React 기반 Amazon Connect CCP 구성하고, Cognito 로 SAML 기반 로그인 통합하기</h1>
+<hr>
+<h2 id="architecture">Architecture</h2>
+<p><img src="amplifyccparchi.png" alt=""></p>
+<hr>
+<h2 id="amazon-connect-의-ccp-contact-control-panel을-react-기반으로-구축해봅니다">Amazon Connect 의 CCP (Contact Control Panel)을 React 기반으로 구축해봅니다.</h2>
+<hr>
+<p>AWS Amplify는 모바일 및 프런트 엔드 웹 개발자가 AWS에서 구동되는 안전하고 확장 가능한 풀 스택 애플리케이션을 개발하도록 지원하는 도구 및 서비스 집합입니다. Amplify를 사용하면 몇 분 만에 앱 백엔드를 구성하고 앱을 연결하며, 클릭 몇 번 만으로 정적 웹 앱을 배포하고, AWS 콘솔 외부에서 앱 콘텐츠를 쉽게 관리할 수 있습니다. Amplify 를 사용하면, AWS 인프라를 쉽게 웹프레임워크에 통합하여 개발할 수 있습니다.<br>
+이 워크샵에서는 Amazon Connect CCP를 React 기반으로 구성합니다.</p>
+<hr>
+<h2 id="cognito-로-로그인로그아웃-기능을-구현하고-amplify-를-이용하여-api-gateway-lambda-를-구성하여-connect-로부터-federation-token-을-받아와서-saml-기반-로그인-통합을-합니다">Cognito 로 로그인/로그아웃 기능을 구현하고, Amplify 를 이용하여 API Gateway, Lambda 를 구성하여 Connect 로부터 Federation Token 을 받아와서 SAML 기반 로그인 통합을 합니다.</h2>
+<hr>
+<p>Amazon Cognito를 사용하면 웹과 모바일 앱에 빠르고 손쉽게 사용자 가입, 로그인 및 액세스 제어 기능을 추가할 수 있습니다. Amazon Cognito에서는 수백만의 사용자로 확장할 수 있고, Apple, Facebook, Google 및 Amazon과 같은 소셜 자격 증명 공급자와 엔터프라이즈 자격 증명 공급자(SAML 2.0 및 OpenID Connect 사용)를 통한 로그인을 지원합니다.<br>
+이 워크샵에서는 Amplify 를 통해 Cognito 와 CCP Webapp 을 통합하고, 로그인/로그아웃 기능을 쉽게 구현해봅니다. 또한, Webapp 로그인 (Cognito 로그인)과 Connect CCP의 로그인을 SAML 기반으로 통합해봅니다. 이때, Federation Token 을 Connect 로부터 받아와야 하므로, Amplify 를 통해 API Gateway와 Lambda로 그 역할을 구현해봅니다.</p>
+<hr>
+	
+  
+        
+            </div> 
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+		
+			<a class="nav nav-next" href="/1.amplify/" title="1. Amplify 로 React App 구성" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1636617871"></script>
+    <script src="/js/jquery.sticky.js?1636617871"></script>
+    <script src="/js/featherlight.min.js?1636617871"></script>
+    <script src="/js/highlight.pack.js?1636617871"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1636617871"></script>
+    <script src="/js/learn.js?1636617871"></script>
+    <script src="/js/hugo-learn.js?1636617871"></script>
+
+    <link href="/mermaid/mermaid.css?1636617871" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1636617871"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>
+

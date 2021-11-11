@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="description" content="">
+<meta name="author" content="Jungkon Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>3. CCP 구성 :: </title>
+
+    
+    <link href="/css/nucleus.css?1636617871" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1636617871" rel="stylesheet">
+    <link href="/css/hybrid.css?1636617871" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1636617871" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1636617871" rel="stylesheet">
+    <link href="/css/auto-complete.css?1636617871" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1636617871" rel="stylesheet">
+    <link href="/css/theme.css?1636617871" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1636617871" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1636617871" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1636617871"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/3.ccp/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px" />
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1636617871"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1636617871"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1636617871"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/1.amplify/" title="1. Amplify 로 React App 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.amplify/">
+          1. Amplify 로 React App 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/2.connect/" title="2. Amazon Connect 인스턴스 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2.connect/">
+          2. Amazon Connect 인스턴스 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/3.ccp/" title="3. CCP 구성" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/3.ccp/">
+          3. CCP 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/4.cognito/" title="4. Cognito 로 로그인/로그아웃 구현하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.cognito/">
+          4. Cognito 로 로그인/로그아웃 구현하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/5.iam/" title="5. IAM 서비스에서 Role 설정하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5.iam/">
+          5. IAM 서비스에서 Role 설정하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/6.addrestapi/" title="6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6.addrestapi/">
+          6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/7.attribute/" title="7. Contact Flow 에서 설정한 Attribute 값 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7.attribute/">
+          7. Contact Flow 에서 설정한 Attribute 값 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/8.customerprofiles/" title="8. Customer Profiles 기능 추가하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8.customerprofiles/">
+          8. Customer Profiles 기능 추가하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credits</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2021 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>Amplify 로 React 기반 Amazon Connect CCP 구성하고, Cognito 로 SAML 기반 로그인 통합하기</a> > 3. CCP 구성
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              3. CCP 구성
+            </h1>
+          
+
+        
+
+
+
+
+	<p><img src="images/amplifyccparchi.png" alt=""></p>
+<blockquote>
+<p><strong>1장에서 구성한 기본 React App 에 CCP (Contact Control Panel) 을 추가합니다. CCP는 Amazon Connect 의 기본 소프트폰을 의미합니다.</strong></p>
+</blockquote>
+<ol>
+<li>
+<p>Connect 콘솔로 접속합니다. (AWS Console 의 Log in for emergency access 를 통해 로그인 가능합니다.) 아래 화면에서 표시된 곳의 아이콘을 클릭합니다.
+<img src="images/01.png" alt=""></p>
+</li>
+<li>
+<p>아래와 같은 소프트폰이 팝업됩니다. 기본적인 Amazon Connect 의 소프트폰입니다. 이를 사용자만의 Website, Webapp 에 Embed 할 수 있습니다.
+<img src="images/02.png" alt=""></p>
+</li>
+</ol>
+
+<div class="notices warning" ><p>로그인한 브라우저를 닫지 않고 이후 실습 및 테스트를 위해 그대로 유지합니다. 팝업된 CCP창은 닫아도 괜찮습니다.</p>
+</div>
+
+<ol start="3">
+<li>프로젝트 Root 디렉토리에서 amazon-connect-streams SDK 를 설치합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; npm install amazon-connect-streams
+</code></pre></div><ol start="4">
+<li>
+<p>아래와 같이 코드를 수정합니다.</p>
+<ul>
+<li>src/App.js</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">CCP</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./component/ccp/ccp.component&#39;</span>
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./App.css&#39;</span>
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+	<span style="color:#66d9ef">return</span> (
+		<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
+			<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">CCP</span> <span style="color:#f92672">/&gt;</span>
+		<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+	)
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>
+</code></pre></div><ol start="5">
+<li>
+<p>src/component/ccp 디렉토리를 만들고, 그 안에 ccp.component.jsx 파일을 생성합니다. 이후 아래와 같이 코드를 작성합니다. [인스턴스 URL] 은 <a href="/2.connect/">2.Amazon Connect 인스턴스 생성</a>
+ 에서 기록한 정보입니다.</p>
+<ul>
+<li>src/component/ccp/ccp.component.jsx</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;amazon-connect-streams&#39;</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CCP</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
+	<span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+		<span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>)
+		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createRef</span>()
+	}
+
+	<span style="color:#a6e22e">componentDidMount</span>() {
+		window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">initCCP</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>, {
+			<span style="color:#a6e22e">ccpUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://[인스턴스 URL]/ccp-v2&#39;</span>,
+			<span style="color:#a6e22e">loginPopup</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+			<span style="color:#a6e22e">region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;us-east-1&#39;</span>,
+			<span style="color:#a6e22e">softphone</span><span style="color:#f92672">:</span> {
+				<span style="color:#a6e22e">allowFramedSoftphone</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+				<span style="color:#a6e22e">disableRingtone</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+			},
+		})
+	}
+
+	<span style="color:#a6e22e">componentWillUnmount</span>() {
+		window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">terminate</span>()
+		<span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>) {
+			<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">iframe</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">firstElementChild</span>
+			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">removeChild</span>(<span style="color:#a6e22e">iframe</span>)
+		}
+	}
+
+	<span style="color:#a6e22e">render</span>() {
+		<span style="color:#66d9ef">return</span> (
+			<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span>
+				<span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp-container&#34;</span>
+				<span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;800px&#39;</span>, <span style="color:#a6e22e">border</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2px solid&#39;</span> }}
+			<span style="color:#f92672">&gt;</span>
+				<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span>
+					<span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp&#34;</span>
+					<span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp&#34;</span>
+					<span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>}
+					<span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;100%&#39;</span>, <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;100%&#39;</span> }}
+				<span style="color:#f92672">/&gt;</span>
+			<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+		)
+	}
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">CCP</span>
+</code></pre></div><ol start="6">
+<li>이후 프로젝트 Root 디렉토리에서 아래와 같이 빌드합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; npm start
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Compiled successfully!
+
+You can now view ccp-amplify-react-demo in the browser.
+
+Local:            http://localhost:3000
+On Your Network:  http://192.168.0.47:3000
+
+Note that the development build is not optimized.
+To create a production build, use yarn build.
+</code></pre></div><ol start="7">
+<li>
+<p>Connect Console 에 접속했던 브라우저에서 새로운 탭을 열고 http://localhost:3000 으로 접속합니다. 아래와 같은 화면이 나오는지 확인합니다.
+<img src="images/03.png" alt=""></p>
+</li>
+<li>
+<p>기본적으로 Default CCP 를 IFrame 에 Embed하여 이와 같이 여러분의 WebApp 에 적용할 수 있습니다.</p>
+</li>
+</ol>
+
+<div class="notices warning" ><p>위와 같이 소프트폰 화면이 나오지 않는다면, Connect Console 에 다시 로그인하고, 오른쪽 상단의 CCP 아이콘을 클릭하여 CCP (소프트폰)이 잘 팝업되는지 확인합니다.</p>
+</div>
+
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/2.connect/" title="2. Amazon Connect 인스턴스 생성"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/4.cognito/" title="4. Cognito 로 로그인/로그아웃 구현하기" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1636617871"></script>
+    <script src="/js/jquery.sticky.js?1636617871"></script>
+    <script src="/js/featherlight.min.js?1636617871"></script>
+    <script src="/js/highlight.pack.js?1636617871"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1636617871"></script>
+    <script src="/js/learn.js?1636617871"></script>
+    <script src="/js/hugo-learn.js?1636617871"></script>
+
+    <link href="/mermaid/mermaid.css?1636617871" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1636617871"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

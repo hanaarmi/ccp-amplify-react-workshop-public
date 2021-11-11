@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="description" content="Workshop for learning basics of amazon connect">
+<meta name="author" content="Jungkon Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>10. Case Playback 시나리오 :: </title>
+
+    
+    <link href="/css/nucleus.css?1631051437" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1631051437" rel="stylesheet">
+    <link href="/css/hybrid.css?1631051437" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1631051437" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1631051437" rel="stylesheet">
+    <link href="/css/auto-complete.css?1631051437" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1631051437" rel="stylesheet">
+    <link href="/css/theme.css?1631051437" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1631051437" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1631051437" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1631051437"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/10.caseplayback/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px" />
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1631051437"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1631051437"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1631051437"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/0.purposes/" title="0. 목적" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/0.purposes/">
+          0. 목적
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/1.prerequisites/" title="1. 사전 준비" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.prerequisites/">
+          1. 사전 준비
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.prerequisites/1.account/" title="Account 만들기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.prerequisites/1.account/">
+          Account 만들기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.prerequisites/2.eventengine/" title="Event Engine 사용하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.prerequisites/2.eventengine/">
+          Event Engine 사용하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.prerequisites/3.instance/" title="Amazon Connect 인스턴스 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.prerequisites/3.instance/">
+          Amazon Connect 인스턴스 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.prerequisites/4.setting/" title="기타 설정" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.prerequisites/4.setting/">
+          기타 설정
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/2.globalparameters/" title="2. 전역 설정" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2.globalparameters/">
+          2. 전역 설정
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/3.timeoftheday/" title="3. 업무 시간 설정하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3.timeoftheday/">
+          3. 업무 시간 설정하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/4.customerlookup/" title="4. 고객 정보 확인" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.customerlookup/">
+          4. 고객 정보 확인
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/4.customerlookup/1.iamsetting/" title="IAM 설정" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.customerlookup/1.iamsetting/">
+          IAM 설정
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/4.customerlookup/2.dynamodbsetting/" title="DyanmoDB로 고객 DB 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.customerlookup/2.dynamodbsetting/">
+          DyanmoDB로 고객 DB 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/4.customerlookup/3.lambdasetting/" title="Lambda 로 정보 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.customerlookup/3.lambdasetting/">
+          Lambda 로 정보 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/4.customerlookup/4.contactflow/" title="Contact Flow 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.customerlookup/4.contactflow/">
+          Contact Flow 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/5.welcome/" title="5. Welcome 메시지" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5.welcome/">
+          5. Welcome 메시지
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/6.testdebug/" title="6. 테스트 및 트러블슈팅" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6.testdebug/">
+          6. 테스트 및 트러블슈팅
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/7.menu/" title="7. DTMF 선택" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7.menu/">
+          7. DTMF 선택
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/8.lex/" title="8. 챗봇" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8.lex/">
+          8. 챗봇
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/9.callback/" title="9. Callback 시나리오" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/9.callback/">
+          9. Callback 시나리오
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/10.caseplayback/" title="10. Case Playback 시나리오" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/10.caseplayback/">
+          10. Case Playback 시나리오
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/11.lastagentrouting/" title="11. Last Agent Routing 시나리오" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/11.lastagentrouting/">
+          11. Last Agent Routing 시나리오
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/12.cleanup/" title="12. 인프라 정리 및 Budget 설정" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/12.cleanup/">
+          12. 인프라 정리 및 Budget 설정
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credits</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2021 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>Amazon Connect Immersion Day</a> > 10. Case Playback 시나리오
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              10. Case Playback 시나리오
+            </h1>
+          
+
+        
+
+
+
+
+	<hr>
+<blockquote>
+<p>지금까지 Lex 를 활용한 Machine Learning 기반의 콜센터를 구축해봤습니다. 이제부터는 조금 더 응용된 시나리오를 구성해보겠습니다. IVR 시나리오를 Contact flow 에서 직접 작성해보고 잘 작동하는지 확인합니다. 이번 장에서는 Case Playback 시나리오를 구성해보겠습니다. SSML 을 이용하여 Polly 에서 동적인 메시지를 멘트로 들려줄 수 있도록 합니다.</p>
+</blockquote>
+<ol>
+<li>
+<p>Connect 콘솔로 접속합니다. Contact flow 메뉴에서 <strong>ConnectIMD7</strong> 를 클릭하여 편집합니다.
+<img src="images/01.png" alt=""></p>
+</li>
+<li>
+<p>아래 시나리오를 작성합니다. 각각의 Command Block 설정은 아래 설명을 참고하여 작성합니다.
+<img src="images/02.png" alt=""></p>
+</li>
+<li>
+<p><strong>Check contact attributes</strong> Command Block 을 왼쪽 리스트 중 <strong>Branch</strong> 메뉴에서 Drag&amp;Drop 으로 편집 화면으로 가져옵니다. 아래와 같이 설정한 후 Save 버튼을 클릭하여 설정을 저장합니다. message 변수를 확인하여 Lambda 함수로 고객 정보를 가져오는 것을 성공했는지 확인합니다.
+<img src="images/03.png" alt=""></p>
+</li>
+<li>
+<p><strong>Get customer input</strong> Command Block 을 왼쪽 리스트 중 <strong>Interact</strong> 메뉴에서 Drag&amp;Drop 으로 편집 화면으로 가져옵니다. 아래 Text를 복사해서 입력합니다. 이후 나머지는 아래와 같이 설정한 이후 Save 버튼을 클릭하여 설정을 저장합니다. SSML 을 이용하여 동적인 변수를 Polly 를 통해 읽어줄 수 있도록 설정합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&lt;speak&gt;
+$.Attributes.firstname the latest case you have open is &lt;say-as interpret-as=&#34;digits&#34;&gt; $.Attributes.casenumber &lt;/say-as&gt;
+Press 1 to hear the latest case comments.
+Press 2 to speak to an agent about a new case.
+&lt;/speak&gt;
+</code></pre></div><p><img src="images/04.png" alt=""></p>
+</li>
+<li>
+<p><strong>Play prompt</strong> Command Block 을 왼쪽 리스트 중 <strong>Interact</strong> 메뉴에서 Drag&amp;Drop 으로 편집 화면으로 가져옵니다. 아래 Text 를 복사해서 입력합니다. Save 버튼을 클릭하여 설정을 저장합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&lt;speak&gt;
+Case Number
+&lt;break time=&#34;1s&#34;/&gt;
+&lt;say-as interpret-as=&#34;digits&#34;&gt;$.Attriburtes.casenumber&lt;/say-as&gt;
+&lt;break time=&#34;1s&#34;/&gt;
+$.Attributes.casedetail
+&lt;/speak&gt;
+</code></pre></div><p><img src="images/05.png" alt=""></p>
+</li>
+<li>
+<p><strong>Get customer input</strong> Command Block 을 왼쪽 리스트 중 <strong>Interact</strong> 메뉴에서 Drag&amp;Drop 으로 편집 화면으로 가져옵니다. 아래 Text 를 복사해서 입력합니다.아래와 같이 설정한 이후 Save 버튼을 클릭하여 설정을 저장합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Press 1 to speak to an agent
+</code></pre></div><p><img src="images/06.png" alt=""></p>
+</li>
+<li>
+<p><strong>Transfer to flow</strong> Command Block 을 왼쪽 리스트 중 <strong>Terminate / Transfer</strong> 메뉴에서 Drag&amp;Drop 으로 편집 화면으로 가져옵니다. <strong>ConnectIMD8</strong> 로 설정합니다. Save 버튼을 클릭하여 설정을 저장합니다.
+<img src="images/07.png" alt=""></p>
+</li>
+<li>
+<p>모든 시나리오를 작성했으면, Save 하고 Publish 를 합니다.</p>
+</li>
+</ol>
+
+<div class="notices info" ><p>Amazon Polly 에서 지원하는 SSML Tag는 다음 링크를 참고하세요. <a href="https://docs.aws.amazon.com/ko_kr/polly/latest/dg/supportedtags.html" target="_blank">https://docs.aws.amazon.com/ko_kr/polly/latest/dg/supportedtags.html</a>
+</p>
+</div>
+
+<blockquote>
+<p><strong>Case playback 과 관련된 시나리오를 모두 작성하였습니다.</strong></p>
+</blockquote>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/9.callback/" title="9. Callback 시나리오"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/11.lastagentrouting/" title="11. Last Agent Routing 시나리오" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1631051437"></script>
+    <script src="/js/perfect-scrollbar.min.js?1631051437"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1631051437"></script>
+    <script src="/js/jquery.sticky.js?1631051437"></script>
+    <script src="/js/featherlight.min.js?1631051437"></script>
+    <script src="/js/highlight.pack.js?1631051437"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1631051437"></script>
+    <script src="/js/learn.js?1631051437"></script>
+    <script src="/js/hugo-learn.js?1631051437"></script>
+
+    <link href="/mermaid/mermaid.css?1631051437" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1631051437"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

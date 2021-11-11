@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="description" content="Workshop for learning basics of amazon connect">
+<meta name="author" content="Jungkon Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lambda 로 정보 가져오기 :: </title>
+
+    
+    <link href="/css/nucleus.css?1631051437" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1631051437" rel="stylesheet">
+    <link href="/css/hybrid.css?1631051437" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1631051437" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1631051437" rel="stylesheet">
+    <link href="/css/auto-complete.css?1631051437" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1631051437" rel="stylesheet">
+    <link href="/css/theme.css?1631051437" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1631051437" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1631051437" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1631051437"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/4.customerlookup/3.lambdasetting/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px" />
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1631051437"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1631051437"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1631051437"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/0.purposes/" title="0. 목적" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/0.purposes/">
+          0. 목적
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/1.prerequisites/" title="1. 사전 준비" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.prerequisites/">
+          1. 사전 준비
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.prerequisites/1.account/" title="Account 만들기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.prerequisites/1.account/">
+          Account 만들기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.prerequisites/2.eventengine/" title="Event Engine 사용하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.prerequisites/2.eventengine/">
+          Event Engine 사용하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.prerequisites/3.instance/" title="Amazon Connect 인스턴스 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.prerequisites/3.instance/">
+          Amazon Connect 인스턴스 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.prerequisites/4.setting/" title="기타 설정" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.prerequisites/4.setting/">
+          기타 설정
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/2.globalparameters/" title="2. 전역 설정" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2.globalparameters/">
+          2. 전역 설정
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/3.timeoftheday/" title="3. 업무 시간 설정하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3.timeoftheday/">
+          3. 업무 시간 설정하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/4.customerlookup/" title="4. 고객 정보 확인" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/4.customerlookup/">
+          4. 고객 정보 확인
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/4.customerlookup/1.iamsetting/" title="IAM 설정" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.customerlookup/1.iamsetting/">
+          IAM 설정
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/4.customerlookup/2.dynamodbsetting/" title="DyanmoDB로 고객 DB 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.customerlookup/2.dynamodbsetting/">
+          DyanmoDB로 고객 DB 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/4.customerlookup/3.lambdasetting/" title="Lambda 로 정보 가져오기" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/4.customerlookup/3.lambdasetting/">
+          Lambda 로 정보 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/4.customerlookup/4.contactflow/" title="Contact Flow 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.customerlookup/4.contactflow/">
+          Contact Flow 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/5.welcome/" title="5. Welcome 메시지" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5.welcome/">
+          5. Welcome 메시지
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/6.testdebug/" title="6. 테스트 및 트러블슈팅" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6.testdebug/">
+          6. 테스트 및 트러블슈팅
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/7.menu/" title="7. DTMF 선택" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7.menu/">
+          7. DTMF 선택
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/8.lex/" title="8. 챗봇" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8.lex/">
+          8. 챗봇
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/9.callback/" title="9. Callback 시나리오" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/9.callback/">
+          9. Callback 시나리오
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/10.caseplayback/" title="10. Case Playback 시나리오" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/10.caseplayback/">
+          10. Case Playback 시나리오
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/11.lastagentrouting/" title="11. Last Agent Routing 시나리오" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/11.lastagentrouting/">
+          11. Last Agent Routing 시나리오
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/12.cleanup/" title="12. 인프라 정리 및 Budget 설정" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/12.cleanup/">
+          12. 인프라 정리 및 Budget 설정
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credits</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2021 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Amazon Connect Immersion Day</a> > <a href='/4.customerlookup/'>4. 고객 정보 확인</a> > Lambda 로 정보 가져오기
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#lambda-함수-만들기">Lambda 함수 만들기</a></li>
+        <li><a href="#lambda-함수-connect-에-등록">Lambda 함수 Connect 에 등록</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lambda 로 정보 가져오기
+            </h1>
+          
+
+        
+
+
+
+
+	<p>ㅑ</p>
+<hr>
+<blockquote>
+<p>이번 장에서는 Lambda 를 이용해서 Dynamo DB의 고객 정보를 Contact Flow 로 불러올 수 있도록 Python 코드를 작성합니다. AWS Lambda 는 서버를 운영하지 않고도 코드를 실행할 수 있는 서비스입니다. 자세한 내용은 다음 링크를 참고하세요. <a href="https://aws.amazon.com/lambda/" target="_blank">AWS Lambda: https://aws.amazon.com/lambda/</a>
+</p>
+</blockquote>
+<h3 id="lambda-함수-만들기">Lambda 함수 만들기</h3>
+<ol>
+<li>
+<p>아래 화면과 같이 Lambda 서비스로 이동합니다.
+<img src="images/01lambdamenu.png" alt=""></p>
+</li>
+<li>
+<p><strong>Create function</strong> 버튼을 클릭하여 새로운 Lambda 함수를 생성합니다.
+<img src="images/02createfunction.png" alt=""></p>
+</li>
+<li>
+<p>화면 상단에서 <strong>Author from scratch</strong> 를 선택합니다. Function name 은 아래 Text 를 복사해서 정확히 입력합니다. Runtime 은 여기에서는 Python 3.8 로 설정합니다. <strong>Change default execution role</strong> 을 클릭하여 Role 을 설정할 수 있도록 합니다. 이전 장에서 생성했던 Role (role-connect-imd) 을 선택합니다. 모두 설정했으면 <strong>Create function</strong> 버튼을 클릭하여 진행합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">func-connect-imd
+</code></pre></div><p><img src="images/03createfunctiondetails.png" alt=""></p>
+</li>
+<li>
+<p>아래 화면에서 <strong>Code</strong> 탭을 선택하고 lambda_function.py 를 작성합니다. 기존 코드를 제거하고 아래 Text를 복사해서 붙여넣습니다.
+<img src="images/04inputfunction.png" alt=""></p>
+<pre><code>```python
+# MIT No Attribution
+# Copyright 2021 AWS
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this
+# software and associated documentation files (the &quot;Software&quot;), to deal in the Software
+# without restriction, including without limitation the rights to use, copy, modify,
+# merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+# permit persons to whom the Software is furnished to do so.
+
+# THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+# INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+# PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+# OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#Import libraries and set table name
+import json
+import boto3
+import os
+
+tableName= os.environ['tablename']
+dynamodb = boto3.resource('dynamodb')
+
+def lambda_handler(event, context):
+
+#Customer phone number passed from Amazon Connect via JSON
+phonenumber = event ['Details']['ContactData']['CustomerEndpoint']['Address']
+
+#customer lookup to DynamoDB via Customer phone number
+table = dynamodb.Table(tableName)
+response = table.get_item(Key={'phonenumber' : phonenumber})
+
+#If record exists write values to variables
+if 'Item' in response:
+    firstname = response['Item']['firstname']
+    lastname = response['Item']['lastname']
+    birthdate = response['Item']['birthdate']
+    lastagent = response['Item']['lastagent']
+    status = response['Item']['status']
+    casenumber = response['Item']['casenumber']
+    casedetail = response['Item']['casedetail']
+
+    #Return variables to Amazon Connect
+    return {'message': 'Success',
+            'firstname' : firstname,
+            'lastname' : lastname,
+            'birthdate' : birthdate,
+            'lastagent' : lastagent,
+            'status' : status,
+            'casenumber' : casenumber,
+            'casedetail' : casedetail,
+    }
+
+    #If no match return a default message
+else:
+    return { 'message': 'Fail'}
+
+```
+</code></pre>
+</li>
+</ol>
+
+<div class="notices warning" ><p>위 코드는 Production 용도로 사용하는 코드가 아닌 실습용으로 사용하는 코드입니다. Production 에 반영하기 전 꼭 리뷰를 수행하시기 바랍니다.</p>
+</div>
+
+
+<div class="notices info" ><p>위의 코드에서 lambda_handler 의 paramter 중 event로 인입 전화의 전화번호를 가져올 수 있습니다. 이외 인입 전화 관련 정보를 event parameter 를 통해 Json 의 형태로 받아올 수 있습니다. 다음 링크를 참고하세요. <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html#function-contact-flow" target="_blank">Invoke a function from a flow</a>
+</p>
+</div>
+
+<ol start="5">
+<li>
+<p><strong>Configuration</strong> 탭을 클릭하고 왼쪽에서 <strong>Environment variables</strong> 항목을 클릭합니다. <strong>Edit</strong> 버튼을 클릭합니다.
+<img src="images/05envparams.png" alt=""></p>
+</li>
+<li>
+<p><strong>Add environment variables</strong> 버튼을 클릭합니다.
+<img src="images/06addenv.png" alt=""></p>
+</li>
+<li>
+<p>Key 와 Value 를 아래 Text 를 복사해서 정확히 입력합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">tablename
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">table-connect-imd
+</code></pre></div><p><img src="images/07tablenameenv.png" alt=""></p>
+</li>
+<li>
+<p>다시 <strong>Code</strong> 탭으로 돌아옵니다. <strong>Deploy</strong> 버튼을 클릭해서 함수를 배포합니다.
+<img src="images/08codedeploy.png" alt=""></p>
+</li>
+<li>
+<p>아래 화면과 같이 잘 배포되었는지 확인합니다.
+<img src="images/09deployed.png" alt=""></p>
+</li>
+</ol>
+<h3 id="lambda-함수-connect-에-등록">Lambda 함수 Connect 에 등록</h3>
+<ol>
+<li>
+<p>다시 Amazon Connect 서비스로 이동합니다.
+<img src="images/10connectmenu.png" alt=""></p>
+</li>
+<li>
+<p>이전에 생성한 Connect 인스턴스를 선택하여 클릭합니다.
+<img src="images/11instaceselect.png" alt=""></p>
+</li>
+<li>
+<p>아래 화면과 같이 왼쪽에서 <strong>Contact flows</strong>를 선택하고 오른쪽 화면에서 아래 쪽으로 스크롤해서 AWS Lambda 항목에서 Lambda Functions 를 이전에 생성한 Lambda 함수 (func-connect-imd)로 선택합니다. 이후 <strong>+Add Lambda Function</strong> 버튼을 클릭해서 함수를 등록합니다.
+<img src="images/12lambdachoose.png" alt=""></p>
+</li>
+</ol>
+
+<div class="notices warning" ><p><strong>+Add Lambda Function</strong> 버튼을 클릭해야 등록이 완료됩니다.</p>
+</div>
+
+<ol start="4">
+<li>아래 화면과 같이 Lambda 함수가 잘 등록되었는지 확인합니다.
+<img src="images/13confirmlambda.png" alt=""></li>
+</ol>
+<blockquote>
+<p><strong>Lambda 함수에 입력한 코드는 별도의 서버를 운영할 필요 없이 호출할 때만 실행하고 실행한 시간 만큼만 과금이 됩니다. 다음 장에서는 Connect 의 Contact Flow에서 위 함수를 호출하여 DynamoDB의 고객 정보를 가져올 수 있도록 해보겠습니다.</strong></p>
+</blockquote>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/4.customerlookup/2.dynamodbsetting/" title="DyanmoDB로 고객 DB 구성"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/4.customerlookup/4.contactflow/" title="Contact Flow 구성" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1631051437"></script>
+    <script src="/js/perfect-scrollbar.min.js?1631051437"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1631051437"></script>
+    <script src="/js/jquery.sticky.js?1631051437"></script>
+    <script src="/js/featherlight.min.js?1631051437"></script>
+    <script src="/js/highlight.pack.js?1631051437"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1631051437"></script>
+    <script src="/js/learn.js?1631051437"></script>
+    <script src="/js/hugo-learn.js?1631051437"></script>
+
+    <link href="/mermaid/mermaid.css?1631051437" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1631051437"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

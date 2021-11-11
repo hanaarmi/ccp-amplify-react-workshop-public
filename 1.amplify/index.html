@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="description" content="">
+<meta name="author" content="Jungkon Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>1. Amplify 로 React App 구성 :: </title>
+
+    
+    <link href="/css/nucleus.css?1636617871" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1636617871" rel="stylesheet">
+    <link href="/css/hybrid.css?1636617871" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1636617871" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1636617871" rel="stylesheet">
+    <link href="/css/auto-complete.css?1636617871" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1636617871" rel="stylesheet">
+    <link href="/css/theme.css?1636617871" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1636617871" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1636617871" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1636617871"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/1.amplify/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px" />
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1636617871"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1636617871"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1636617871"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/1.amplify/" title="1. Amplify 로 React App 구성" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/1.amplify/">
+          1. Amplify 로 React App 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/2.connect/" title="2. Amazon Connect 인스턴스 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2.connect/">
+          2. Amazon Connect 인스턴스 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/3.ccp/" title="3. CCP 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3.ccp/">
+          3. CCP 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/4.cognito/" title="4. Cognito 로 로그인/로그아웃 구현하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.cognito/">
+          4. Cognito 로 로그인/로그아웃 구현하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/5.iam/" title="5. IAM 서비스에서 Role 설정하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5.iam/">
+          5. IAM 서비스에서 Role 설정하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/6.addrestapi/" title="6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6.addrestapi/">
+          6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/7.attribute/" title="7. Contact Flow 에서 설정한 Attribute 값 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7.attribute/">
+          7. Contact Flow 에서 설정한 Attribute 값 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/8.customerprofiles/" title="8. Customer Profiles 기능 추가하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8.customerprofiles/">
+          8. Customer Profiles 기능 추가하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credits</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2021 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>Amplify 로 React 기반 Amazon Connect CCP 구성하고, Cognito 로 SAML 기반 로그인 통합하기</a> > 1. Amplify 로 React App 구성
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#사전-설정">사전 설정</a></li>
+        <li><a href="#react-app-구성">React App 구성</a></li>
+        <li><a href="#amplify-cli-로-aws-backend-설정">Amplify CLI 로 AWS Backend 설정</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              1. Amplify 로 React App 구성
+            </h1>
+          
+
+        
+
+
+
+
+	<p><img src="images/01.png" alt=""></p>
+<blockquote>
+<p><strong>React App 을 구성하고, Amplify CLI 를 통해 AWS 인프라를 사용할 수 있도록 Amplify 환경을 설정합니다.</strong></p>
+</blockquote>
+<h3 id="사전-설정">사전 설정</h3>
+<ol>
+<li>
+<p>시작하기에 앞서 아래의 목록이 설치되어야합니다. 설치와 자세한 내용은 링크를 참고하시기 바랍니다.</p>
+<ul>
+<li><a href="https://nodejs.org/en/" target="_blank">Node.js</a>
+ v12.x 이상</li>
+<li><a href="https://www.npmjs.com/" target="_blank">npm</a>
+ v5.x 이상</li>
+<li><a href="https://git-scm.com/" target="_blank">git</a>
+ v2.14.1 이상</li>
+<li>본 워크샵은 여러분들이 Javascript/ES6 와 React 에 경험이 있다고 가정합니다. React 와 관련된 더 자세한 내용은 <a href="https://reactjs.org/tutorial/tutorial.html" target="_blank">React Official 사이트의 튜토리얼</a>
+을 참고하시기 바랍니다.</li>
+</ul>
+</li>
+<li>
+<p>AWS Account</p>
+<ul>
+<li>AWS Account 가 없다면, 아래 링크에서 AWS Account 를 구성하시기 바랍니다.</li>
+<li><a href="https://portal.aws.amazon.com/billing/signup?redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start" target="_blank">AWS Account 만들기</a>
+</li>
+</ul>
+</li>
+<li>
+<p>Amplify CLI</p>
+<ul>
+<li>아래의 비디오 가이드대로 Amplify CLI 를 설치하시기 바랍니다.</li>
+<li>Region 은 us-east-1 (virginia) 또는 us-west-2 (oregon) 로 선택하시기 바랍니다. 이후에 설치할 Connect 인스턴스와 동일한 리전이어야 하며, 이 두 리전에서 Connect 인스턴스를 테스트하기 용이합니다.</li>
+</ul>
+</li>
+</ol>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/fWbM5DLh25U" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<hr>
+<h3 id="react-app-구성">React App 구성</h3>
+<ol>
+<li>
+<p>React App 을 구성합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npx create-react-app ccp-amplify-react-demo
+</code></pre></div></li>
+<li>
+<p>위 Command 를 실행하면 기본적인 <strong>ccp-amplify-react-demo</strong> 이름으로 React App 이 구성됩니다. 동일한 이름의 폴더로 이동하여, 아래와 같이 App 이 잘 구성됐는지 테스트 합니다. 앞으로 이 폴더가 프로젝트 폴더가 됩니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ccp-amplify-react-demo
+npm start
+</code></pre></div></li>
+<li>
+<p>브라우저가 실행되고 새로운 탭에 아래와 같은 화면이 보이면 React App 의 구성은 잘 완료된 것입니다.
+<img src="images/02.png" alt=""></p>
+</li>
+</ol>
+<hr>
+<h3 id="amplify-cli-로-aws-backend-설정">Amplify CLI 로 AWS Backend 설정</h3>
+<ol>
+<li>Amplify 를 초기화합니다. 프로젝트 폴더에서 아래와 같이 실행합니다. 이후 CLI 실행 시 물어보는 질문에 대해서는 아래와 같이 선택합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">amplify init
+Note: It is recommended to run this command from the root of your app directory
+? Do you want to use an existing environment? Yes
+? Choose the environment you would like to use: dev
+? Choose your default editor: Visual Studio Code
+Using default provider  awscloudformation
+⠋ Initializing your environment: dev<span style="color:#f92672">(</span>node:11595<span style="color:#f92672">)</span>
+✔ Initialized provider successfully.
+Initialized your environment successfully.
+
+Your project has been successfully initialized and connected to the cloud!
+</code></pre></div>
+<div class="notices info" ><p>environment 이름(현재는 dev)이나 default editor 설정을 변경하고 싶을 경우, 첫번째 질문시 No 를 선택하고 원하는 설정을 해도 됩니다.</p>
+</div>
+
+<ol start="2">
+<li>
+<p>위와 같이 초기화이후 아래 설정들이 완료됩니다.</p>
+<ul>
+<li><strong>amplify</strong> 디렉토리가 만들어지고, AWS 인프라와 관련된 설정이 모두 저장됩니다. 모든 설정은 Code as a infra 방식으로 관리됩니다. (코드 방식으로 인프라의 상세 설정을 정의).</li>
+<li>aws-exports.js 파일이 만들어지고, Amplify 를 이용해 만든는 인프라와 관련된 설정이 이 파일에 설정됩니다.</li>
+<li>.gitignore 파일이 생성됩니다. AWS Account 와 연관된 설정이나 Credential 관련 정보를 가진 파일들은 git 의 대상에서 빠질 수 있도록 합니다.</li>
+<li><strong>amplify console</strong> 명령어로 AWS Console 에 접속할 수 있습니다.</li>
+</ul>
+</li>
+<li>
+<p>아래와 같이 Amplify Library 를 설치합니다.</p>
+<ul>
+<li><code>aws-amplify</code> package 는 Amplify main library 에 해당합니다. <code>@aws-amplify/ui-react</code> 는 Amplify 에서 사용하는 UI 관련 Component 입니다.</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">npm install aws-amplify @aws-amplify/ui-react
+</code></pre></div><ol start="4">
+<li>프로젝트 폴더에서 src/index.js 를 열어 아래 내용을 이미 import 된 라이브러리 들 밑에 추가합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Amplify</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;aws-amplify&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">awsExports</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./aws-exports&#34;</span>;
+<span style="color:#a6e22e">Amplify</span>.<span style="color:#a6e22e">configure</span>(<span style="color:#a6e22e">awsExports</span>);
+</code></pre></div><ol start="5">
+<li>src/index.js 전체 소스코드는 다음과 같습니다.
+<ul>
+<li>src/index.js</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-dom&#39;</span>
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./index.css&#39;</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App&#39;</span>
+
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Amplify</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;aws-amplify&#39;</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">awsExports</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./aws-exports&#39;</span>
+<span style="color:#a6e22e">Amplify</span>.<span style="color:#a6e22e">configure</span>(<span style="color:#a6e22e">awsExports</span>)
+
+<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+    &lt;<span style="color:#f92672">React.StrictMode</span>&gt;
+        &lt;<span style="color:#f92672">App</span> /&gt;
+    &lt;/<span style="color:#f92672">React.StrictMode</span>&gt;,
+    document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
+)
+</code></pre></div>
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/" title="Amplify 로 React 기반 Amazon Connect CCP 구성하고, Cognito 로 SAML 기반 로그인 통합하기"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/2.connect/" title="2. Amazon Connect 인스턴스 생성" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1636617871"></script>
+    <script src="/js/jquery.sticky.js?1636617871"></script>
+    <script src="/js/featherlight.min.js?1636617871"></script>
+    <script src="/js/highlight.pack.js?1636617871"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1636617871"></script>
+    <script src="/js/learn.js?1636617871"></script>
+    <script src="/js/hugo-learn.js?1636617871"></script>
+
+    <link href="/mermaid/mermaid.css?1636617871" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1636617871"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

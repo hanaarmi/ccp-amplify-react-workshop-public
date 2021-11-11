@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="description" content="">
+<meta name="author" content="Jungkon Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>8. Customer Profiles 기능 추가하기 :: </title>
+
+    
+    <link href="/css/nucleus.css?1636617871" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1636617871" rel="stylesheet">
+    <link href="/css/hybrid.css?1636617871" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1636617871" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1636617871" rel="stylesheet">
+    <link href="/css/auto-complete.css?1636617871" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1636617871" rel="stylesheet">
+    <link href="/css/theme.css?1636617871" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1636617871" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1636617871" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1636617871"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/8.customerprofiles/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px" />
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1636617871"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1636617871"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1636617871"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/1.amplify/" title="1. Amplify 로 React App 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.amplify/">
+          1. Amplify 로 React App 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/2.connect/" title="2. Amazon Connect 인스턴스 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2.connect/">
+          2. Amazon Connect 인스턴스 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/3.ccp/" title="3. CCP 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3.ccp/">
+          3. CCP 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/4.cognito/" title="4. Cognito 로 로그인/로그아웃 구현하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.cognito/">
+          4. Cognito 로 로그인/로그아웃 구현하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/5.iam/" title="5. IAM 서비스에서 Role 설정하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5.iam/">
+          5. IAM 서비스에서 Role 설정하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/6.addrestapi/" title="6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6.addrestapi/">
+          6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/7.attribute/" title="7. Contact Flow 에서 설정한 Attribute 값 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7.attribute/">
+          7. Contact Flow 에서 설정한 Attribute 값 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/8.customerprofiles/" title="8. Customer Profiles 기능 추가하기" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/8.customerprofiles/">
+          8. Customer Profiles 기능 추가하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credits</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2021 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>Amplify 로 React 기반 Amazon Connect CCP 구성하고, Cognito 로 SAML 기반 로그인 통합하기</a> > 8. Customer Profiles 기능 추가하기
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#customer-profiels-설정하기">Customer Profiels 설정하기</a></li>
+        <li><a href="#ccp-에-customer-profiles-삽입">CCP 에 Customer Profiles 삽입</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              8. Customer Profiles 기능 추가하기
+            </h1>
+          
+
+        
+
+
+
+
+	<p><img src="images/amplifyccparchi.png" alt=""></p>
+<blockquote>
+<p><strong>Amazon Connect Customer Profiles 는 여러 외부 애플리케이션의 고객 정보를 Amazon Connect의 연락처 기록과 빠르게 결합할 수 있도록 사전 구축된 통합을 제공합니다. 이를 통해 고객 상호 작용 중에 에이전트에게 필요한 모든 정보를 한 곳에서 확인할 수 있는 고객 프로파일을 만들 수 있습니다.</strong></p>
+</blockquote>
+<h3 id="customer-profiels-설정하기">Customer Profiels 설정하기</h3>
+<ol>
+<li>Amazon Connect 서비스로 이동하여 생성한 인스턴스를 선택합니다.</li>
+</ol>
+<p><img src="images/01.png" alt=""></p>
+<ol start="2">
+<li>왼쪽 메뉴에서 <strong>Customer Profiles</strong> 를 선택하고, <strong>Enable Customer Profiles</strong> 버튼을 클릭합니다.</li>
+</ol>
+<p><img src="images/02.png" alt=""></p>
+<ol start="3">
+<li><strong>Create new domain</strong> 을 선택하고 Domain name 을 입력합니다. 고객 정보를 관리할 회사 이름이나 특정 목적을 잘 알 수 있도록 이름을 설정하면 됩니다.</li>
+</ol>
+<p><img src="images/03.png" alt=""></p>
+<ol start="4">
+<li>Customer Profiles 는 모든 고객 정보를 암호화하여 저장합니다. 따라서, 암호화 Key 를 만들어야합니다. 암호화 Key는 KMS 서비스를 통해 생성/관리할 수 있습니다. 아래 버튼을 클릭하여 KMS Key 를 생성해보도록 합니다.</li>
+</ol>
+<p><img src="images/04.png" alt=""></p>
+<ol start="5">
+<li><strong>Symmetric</strong> Key type 을 선택하고 <strong>Next</strong> 버튼을 클릭합니다.</li>
+</ol>
+<p><img src="images/05.png" alt=""></p>
+<ol start="6">
+<li><strong>Alias</strong> 이름을 입력하고 <strong>Next</strong> 버튼을 클릭합니다.</li>
+</ol>
+<p><img src="images/06.png" alt=""></p>
+<ol start="7">
+<li>
+<p>Define key administrative permissions 페이지는 Next 버튼을 클릭하여 넘어갑니다.</p>
+</li>
+<li>
+<p>Define key usage permissions 페이지는 Next 버튼을 클릭하여 넘어갑니다.</p>
+</li>
+<li>
+<p>아래와 같이 Key 가 만들어졌습니다.</p>
+</li>
+</ol>
+<p><img src="images/07.png" alt=""></p>
+<ol start="10">
+<li>다시 Customer Profiels 를 생성하던 Tab 으로 이동합니다. <strong>Specify KMS key box</strong> 에서 방금 전 생성한 Key 를 선택합니다.</li>
+</ol>
+<p><img src="images/08.png" alt=""></p>
+<ol start="11">
+<li><strong>Enable Customer Profiles</strong> 버튼을 클릭하여 생성을 마무리합니다.</li>
+</ol>
+<p><img src="images/09.png" alt=""></p>
+<ol start="12">
+<li>Customer Profiles domain 정보와 KMS Key 를 확인합니다.</li>
+</ol>
+<p><img src="images/10.png" alt=""></p>
+<h3 id="ccp-에-customer-profiles-삽입">CCP 에 Customer Profiles 삽입</h3>
+<ol>
+<li>src/component/ccp/ccp.component.jsx 파일의 componentDidMount() 함수를 아래와 같이 수정합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">async</span> <span style="color:#a6e22e">componentDidMount</span>() {
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">attributes</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Auth</span>.<span style="color:#a6e22e">currentAuthenticatedUser</span>()
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">attributes</span>.<span style="color:#a6e22e">email</span>)
+    <span style="color:#a6e22e">ccpAuthLogin</span>(<span style="color:#a6e22e">attributes</span>.<span style="color:#a6e22e">email</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">result</span>) =&gt; {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">ccpResult</span>)
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({ <span style="color:#a6e22e">credentials</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">ccpResult</span>) })
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginFrm</span>.<span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">submit</span>()
+
+        window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">agentApp</span>.<span style="color:#a6e22e">initApp</span>(
+            <span style="color:#e6db74">&#39;ccp&#39;</span>,
+            <span style="color:#e6db74">&#39;ccp&#39;</span>,
+            <span style="color:#e6db74">&#39;https://[Connect인스턴스URL]/ccp-v2/&#39;</span>
+        )
+        window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">agentApp</span>.<span style="color:#a6e22e">initApp</span>(
+            <span style="color:#e6db74">&#39;customerprofiles&#39;</span>,
+            <span style="color:#e6db74">&#39;customprofile&#39;</span>,
+            <span style="color:#e6db74">&#39;https://[Connect인스턴스URL]/customerprofiles-v2/&#39;</span>
+        )
+
+        window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">contact</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">contact</span>) {
+            <span style="color:#a6e22e">contact</span>.<span style="color:#a6e22e">onConnected</span>(<span style="color:#66d9ef">function</span> () {
+                document.<span style="color:#a6e22e">getElementById</span>(
+                    <span style="color:#e6db74">&#39;logMsgs&#39;</span>
+                ).<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`onConnected(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">contact</span>.<span style="color:#a6e22e">getContactId</span>()<span style="color:#e6db74">}</span><span style="color:#e6db74">)&lt;br&gt;`</span>
+                <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">attributeMap</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">contact</span>.<span style="color:#a6e22e">getAttributes</span>()
+                <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">note</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">attributeMap</span>[<span style="color:#e6db74">&#39;note&#39;</span>][<span style="color:#e6db74">&#39;value&#39;</span>])
+                <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">phonenumber</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(
+                    <span style="color:#a6e22e">attributeMap</span>[<span style="color:#e6db74">&#39;phonenumber&#39;</span>][<span style="color:#e6db74">&#39;value&#39;</span>]
+                )
+                <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">firstname</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(
+                    <span style="color:#a6e22e">attributeMap</span>[<span style="color:#e6db74">&#39;firstname&#39;</span>][<span style="color:#e6db74">&#39;value&#39;</span>]
+                )
+                <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">lastname</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(
+                    <span style="color:#a6e22e">attributeMap</span>[<span style="color:#e6db74">&#39;lastname&#39;</span>][<span style="color:#e6db74">&#39;value&#39;</span>]
+                )
+                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">attributeMap</span>)
+                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">note</span>)
+                document.<span style="color:#a6e22e">getElementById</span>(
+                    <span style="color:#e6db74">&#39;logMsgs&#39;</span>
+                ).<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">note</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;br&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">phonenumber</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;br&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">firstname</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;br&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">lastname</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;br&gt;`</span>
+            })
+        })
+    })
+}
+</code></pre></div><ol start="2">
+<li>src/component/ccp/ccp.component.jsx 파일의 render() 함수에서 첫부분을 아래와 같이 수정합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#a6e22e">render</span>() {
+    <span style="color:#66d9ef">return</span> (
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp-container&#34;</span>&gt;
+            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp&#34;</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp&#34;</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>} /&gt;
+            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;customprofile&#34;</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;customprofile&#34;</span> /&gt;
+            &lt;<span style="color:#f92672">div</span>
+                <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden_iframe_div&#34;</span>
+                <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">visibility</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hidden&#39;</span> }}
+                <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden_iframe_div&#34;</span>
+            &gt;
+</code></pre></div><ol start="3">
+<li>src/component/ccp/ccp.component.scss 파일에, 아래와 같이 수정합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#a6e22e">.ccp-container</span> {
+	<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+	<span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">800</span><span style="color:#66d9ef">px</span>;
+	<span style="color:#a6e22e">border</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2px solid&#39;</span>;
+	<span style="color:#a6e22e">flex-direction</span><span style="color:#f92672">:</span> row;
+	<span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> flex;
+	<span style="color:#a6e22e">align-items</span><span style="color:#f92672">:</span> flex-start;
+
+	<span style="color:#a6e22e">.ccp</span> {
+		<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">40</span><span style="color:#66d9ef">%</span>;
+		<span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+	}
+
+	<span style="color:#a6e22e">.customprofile</span> {
+		<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">40</span><span style="color:#66d9ef">%</span>;
+		<span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+	}
+
+	<span style="color:#a6e22e">.hidden_iframe_div</span> {
+		<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
+	}
+
+	<span style="color:#a6e22e">.loginFrm_div</span> {
+		<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
+	}
+
+	<span style="color:#a6e22e">.logMsgsContainer</span> {
+		<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span><span style="color:#66d9ef">%</span>;
+		<span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+		<span style="color:#a6e22e">margin</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+	}
+}
+</code></pre></div><ol start="4">
+<li><code>npm start</code> 를 실행하여 테스트를 진행합니다. 전화를 걸고 Accept 를 했을 때 아래와 같은 화면이 보입니다. Edit 버튼을 클릭하여 고객 정보를 수정할 수 있습니다.</li>
+</ol>
+<p><img src="images/11.png" alt=""></p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/7.attribute/" title="7. Contact Flow 에서 설정한 Attribute 값 가져오기"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/1.amplify/" title="1. Amplify 로 React App 구성" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1636617871"></script>
+    <script src="/js/jquery.sticky.js?1636617871"></script>
+    <script src="/js/featherlight.min.js?1636617871"></script>
+    <script src="/js/highlight.pack.js?1636617871"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1636617871"></script>
+    <script src="/js/learn.js?1636617871"></script>
+    <script src="/js/hugo-learn.js?1636617871"></script>
+
+    <link href="/mermaid/mermaid.css?1636617871" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1636617871"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="description" content="">
+<meta name="author" content="Jungkon Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>2. Amazon Connect 인스턴스 생성 :: </title>
+
+    
+    <link href="/css/nucleus.css?1636617871" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1636617871" rel="stylesheet">
+    <link href="/css/hybrid.css?1636617871" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1636617871" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1636617871" rel="stylesheet">
+    <link href="/css/auto-complete.css?1636617871" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1636617871" rel="stylesheet">
+    <link href="/css/theme.css?1636617871" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1636617871" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1636617871" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1636617871"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/2.connect/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px" />
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1636617871"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1636617871"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1636617871"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/1.amplify/" title="1. Amplify 로 React App 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.amplify/">
+          1. Amplify 로 React App 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/2.connect/" title="2. Amazon Connect 인스턴스 생성" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/2.connect/">
+          2. Amazon Connect 인스턴스 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/3.ccp/" title="3. CCP 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3.ccp/">
+          3. CCP 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/4.cognito/" title="4. Cognito 로 로그인/로그아웃 구현하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.cognito/">
+          4. Cognito 로 로그인/로그아웃 구현하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/5.iam/" title="5. IAM 서비스에서 Role 설정하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5.iam/">
+          5. IAM 서비스에서 Role 설정하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/6.addrestapi/" title="6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6.addrestapi/">
+          6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/7.attribute/" title="7. Contact Flow 에서 설정한 Attribute 값 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7.attribute/">
+          7. Contact Flow 에서 설정한 Attribute 값 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/8.customerprofiles/" title="8. Customer Profiles 기능 추가하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8.customerprofiles/">
+          8. Customer Profiles 기능 추가하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credits</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2021 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>Amplify 로 React 기반 Amazon Connect CCP 구성하고, Cognito 로 SAML 기반 로그인 통합하기</a> > 2. Amazon Connect 인스턴스 생성
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              2. Amazon Connect 인스턴스 생성
+            </h1>
+          
+
+        
+
+
+
+
+	<p><img src="images/00.png" alt=""></p>
+<blockquote>
+<p>Amazon Connect 인스턴스를 생성합니다. Amazon Connect 인스턴스란, 클라우드 콜센터 인프라 하나를 가르키는 단위입니다. 인스턴스 내부에는 콜센터를 위한 모든 인프라가 클라우드 기반으로 설치됩니다. 별도의 하드웨어 인프라를 설치할 필요 없이 인스턴스를 생성하면 모든 콜센터 관련 클라우드 인프라 및 통신사와의 연결 또한 자동 생성/관리 됩니다. 사용자는 인프라 설치 및 관리를 직접하지 않아도 됩니다.</p>
+</blockquote>
+<ol>
+<li>
+<p>AWS 콘솔 화면에서 먼저 아래 화면에서 오른쪽 위 빨간색 박스 부분에서 현재 콘솔의 리전을 확인합니다. 이 실습에서는 <strong>US EAST (N. Virginia) us-east-1</strong> 또는 <strong>US West (Oregon) us-west-2</strong> 에서 진행합니다. Amplify 를 설정했을 때 선택했던 리전과 동일하게 설정해야합니다.</p>
+<p><img src="images/01awsconsole.png" alt=""></p>
+</li>
+<li>
+<p>Services 메뉴에서 Amazon Connect 를 선택합니다.
+<img src="images/02awservices.png" alt=""></p>
+</li>
+<li>
+<p>Amazon Connect 서비스 첫 시작 화면입니다. Get Started 버튼을 클릭하여 진행합니다.
+<img src="images/03welcomeconnect.png" alt=""></p>
+</li>
+<li>
+<p>만약, 아래와 같은 UI 화면이 나오면 오른쪽 위의 Try out the new console 버튼을 클릭하여 신규 UI로 전환합니다.
+<img src="images/04oldui.png" alt=""></p>
+</li>
+<li>
+<p>아래 화면에서 SAML 2.0-based authentication 을 선택합니다. Access URL 을 입력하고 Nex 버튼을 클릭하여 이동합니다. Access URL은 AWS에서 운영하는 모든 Connect 인스턴스 Access URL 중 유일한 값이어야합니다. 자신만의 이름으로 설정하도록 합니다. 또한 기록해둡니다.
+<img src="images/05identity.png" alt=""></p>
+</li>
+</ol>
+
+<div class="notices info" ><p>Connect 에서는 3가지 계정 관리 방법을 지원합니다. 1. Connect 내부에서 계정 정보 관리, 2. 기존 Active Directory 서비스로 연결, 3. SAML 연동입니다. 본 워크샵에서는 SAML 연동을 통해 계정을 인증합니다. 기타 자세한 내용은 <a href="https://docs.aws.amazon.com/ko_kr/connect/latest/adminguide/connect-identity-management.html" target="_blank">Amazon Connect 에서 자격 증명 관리 계획</a>
+ 을 참고하시기 바랍니다.</p>
+</div>
+
+<ol start="6">
+<li>
+<p>Connect 인스턴스의 관리자를 설정하는 화면입니다. 여기에서는 No administrator 를 선택하고 Next 버튼을 클릭하여 진행합니다.
+<img src="images/06admininfo.png" alt=""></p>
+</li>
+<li>
+<p>Incoming Call / Outgoing Call 을 모두 관리할 수 있도록 기존 설정 그대로 진행합니다. Next 버튼을 클릭합니다.
+<img src="images/07teleoption.png" alt=""></p>
+</li>
+<li>
+<p>녹취, 리포트, 채팅 기록 등은 클라우드 스토리지인 S3에 저장이 됩니다. 저장 위치를 변경할 수 있습니다만, 기존 설정 그대로 진행합니다. Next 버튼을 클릭합니다.
+<img src="images/08storageoption.png" alt=""></p>
+</li>
+<li>
+<p>인스턴스 생성을 위한 모든 설정을 완료했습니다. 지금까지 입력한 내용이 잘 입력되었는지 확인 후 Create Instance 버튼을 클릭하여 진행합니다.
+<img src="images/09review.png" alt=""></p>
+</li>
+<li>
+<p>수분 이후 인스턴스 생성이 완료됩니다.
+<img src="images/10creatinginstance.png" alt=""></p>
+</li>
+<li>
+<p>인스턴스 생성이 완료됐습니다. 아래 화면에서 상단 메시지와 오른쪽 아래 Status 가 Active 로 되어 있으면 생성이 성공한 것입니다. 이제 왼쪽 하단의 Instance Alias 를 클릭합니다.
+<img src="images/11creationsuccess.png" alt=""></p>
+</li>
+<li>
+<p>아래 화면에서 <strong>Access URL</strong>에 표시된 도메인 주소를 기록해둡니다. 이 정보가 <strong>인스턴스 URL</strong>입니다.
+<img src="images/12accountoverview.png" alt=""></p>
+</li>
+<li>
+<p><strong>Login for emergency access</strong> 를 클릭하여 AWS 콘솔에 접속합니다.
+<img src="images/15loginforemergency.png" alt=""></p>
+</li>
+<li>
+<p><strong>User management</strong> 메뉴로 이동합니다.
+<img src="images/16usermanagement.png" alt=""></p>
+</li>
+<li>
+<p><strong>Add new users</strong> 버튼을 클릭하여 새로운 사용자를 추가합니다.
+<img src="images/17addnewuser.png" alt=""></p>
+</li>
+<li>
+<p>CSV 형태의 목록을 통해 다수의 사용자를 한꺼번에 등록할 수 있지만, 여기에서는 하나의 사용자만 추가합니다.
+<img src="images/18createandsetupnewuser.png" alt=""></p>
+</li>
+<li>
+<p>아래와 같이 사용자 정보를 입력합니다. First name, Last name 은 자신의 정보를 알맞게 입력합니다. <strong>Login name 은 꼭 실제 사용이 가능한 이메일 주소를 사용해야합니다.</strong> Routing Profile, Security Profiles 등도 아래 화면과 같이 설정합니다. <strong>Save</strong> 버튼을 클릭하여 저장합니다. Login name 은 기록해둡니다.
+<img src="images/19usermanagement.png" alt=""></p>
+</li>
+<li>
+<p>Create users 를 눌러 사용자 생성을 완료하도록 합니다.
+<img src="images/20verfiyuser.png" alt=""></p>
+</li>
+</ol>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/1.amplify/" title="1. Amplify 로 React App 구성"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/3.ccp/" title="3. CCP 구성" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1636617871"></script>
+    <script src="/js/jquery.sticky.js?1636617871"></script>
+    <script src="/js/featherlight.min.js?1636617871"></script>
+    <script src="/js/highlight.pack.js?1636617871"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1636617871"></script>
+    <script src="/js/learn.js?1636617871"></script>
+    <script src="/js/hugo-learn.js?1636617871"></script>
+
+    <link href="/mermaid/mermaid.css?1636617871" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1636617871"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

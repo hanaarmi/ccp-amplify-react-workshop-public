@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="description" content="">
+<meta name="author" content="Jungkon Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>7. Contact Flow 에서 설정한 Attribute 값 가져오기 :: </title>
+
+    
+    <link href="/css/nucleus.css?1636617871" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1636617871" rel="stylesheet">
+    <link href="/css/hybrid.css?1636617871" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1636617871" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1636617871" rel="stylesheet">
+    <link href="/css/auto-complete.css?1636617871" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1636617871" rel="stylesheet">
+    <link href="/css/theme.css?1636617871" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1636617871" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1636617871" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1636617871"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/7.attribute/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px" />
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1636617871"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1636617871"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1636617871"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/1.amplify/" title="1. Amplify 로 React App 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.amplify/">
+          1. Amplify 로 React App 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/2.connect/" title="2. Amazon Connect 인스턴스 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2.connect/">
+          2. Amazon Connect 인스턴스 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/3.ccp/" title="3. CCP 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3.ccp/">
+          3. CCP 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/4.cognito/" title="4. Cognito 로 로그인/로그아웃 구현하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.cognito/">
+          4. Cognito 로 로그인/로그아웃 구현하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/5.iam/" title="5. IAM 서비스에서 Role 설정하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5.iam/">
+          5. IAM 서비스에서 Role 설정하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/6.addrestapi/" title="6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6.addrestapi/">
+          6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/7.attribute/" title="7. Contact Flow 에서 설정한 Attribute 값 가져오기" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/7.attribute/">
+          7. Contact Flow 에서 설정한 Attribute 값 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/8.customerprofiles/" title="8. Customer Profiles 기능 추가하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8.customerprofiles/">
+          8. Customer Profiles 기능 추가하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credits</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2021 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>Amplify 로 React 기반 Amazon Connect CCP 구성하고, Cognito 로 SAML 기반 로그인 통합하기</a> > 7. Contact Flow 에서 설정한 Attribute 값 가져오기
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#contact-flow-에서-attribute-설정하기">Contact Flow 에서 Attribute 설정하기</a></li>
+        <li><a href="#custom-ccp-에-정보-보여주기">Custom CCP 에 정보 보여주기</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              7. Contact Flow 에서 설정한 Attribute 값 가져오기
+            </h1>
+          
+
+        
+
+
+
+
+	<p><img src="images/amplifyccparchi.png" alt=""></p>
+<blockquote>
+<p><strong>Contact Flow 에서 다양한 Attribute 를 설정하고, 이를 CCP 에서 받아 정보를 표시할 수 있습니다.</strong></p>
+</blockquote>
+<h3 id="contact-flow-에서-attribute-설정하기">Contact Flow 에서 Attribute 설정하기</h3>
+<ol>
+<li>Connect Console 로 접속하여, 아래와 같이 Contact flows 를 선택합니다.</li>
+</ol>
+<p><img src="images/01.png" alt=""></p>
+<ol start="2">
+<li><strong>Sample note for screenpop</strong> Contact flow을 선택합니다.</li>
+</ol>
+<p><img src="images/02.png" alt=""></p>
+<ol start="3">
+<li>아래와 같은 Contact flow 에서 <strong>Set contact attributes</strong> 를 선택합니다.</li>
+</ol>
+<p><img src="images/03.png" alt=""></p>
+<ol start="4">
+<li>CCP 에서 전달 받을 Attributes 를 임의로 입력할 수 있습니다. 여기에서는 아래와 같은 정보를 입력해봅니다. 이후 Save 버튼을 클릭하여 저장합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">phonenumber : 010-1234-5679
+firstname : Jungkon
+lastname : Kim
+</code></pre></div><p><img src="images/04.png" alt=""></p>
+<ol start="5">
+<li>Contact flow 를 <strong>Save</strong> 한 이후 <strong>Publish</strong>합니다.</li>
+</ol>
+<p><img src="images/05.png" alt=""></p>
+<ol start="6">
+<li><strong>Phone numbers</strong> 메뉴로 이동합니다.</li>
+</ol>
+<p><img src="images/06.png" alt=""></p>
+<ol start="7">
+<li>발급받은 전화번호를 클릭합니다.</li>
+</ol>
+<p><img src="images/07.png" alt=""></p>
+<ol start="8">
+<li>연결된 Contact flow / IVR 로 위에서 편집한 <strong>Sample note for screenpop</strong> 을 선택한 이후 <strong>Save</strong> 버튼을 클릭하여 저장합니다.</li>
+</ol>
+<p><img src="images/08.png" alt=""></p>
+<h3 id="custom-ccp-에-정보-보여주기">Custom CCP 에 정보 보여주기</h3>
+<ol>
+<li>src/component/ccp/ccp.component.jsx 의 componentDidMonut() 함수의 마지막 부분에 아래 소스를 추가합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react">window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">contact</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">contact</span>) {
+    <span style="color:#a6e22e">contact</span>.<span style="color:#a6e22e">onConnected</span>(<span style="color:#66d9ef">function</span> () {
+        document.<span style="color:#a6e22e">getElementById</span>(
+            <span style="color:#e6db74">&#39;logMsgs&#39;</span>
+        ).<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`onConnected(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">contact</span>.<span style="color:#a6e22e">getContactId</span>()<span style="color:#e6db74">}</span><span style="color:#e6db74">)&lt;br&gt;`</span>
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">attributeMap</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">contact</span>.<span style="color:#a6e22e">getAttributes</span>()
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">note</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">attributeMap</span>[<span style="color:#e6db74">&#39;note&#39;</span>][<span style="color:#e6db74">&#39;value&#39;</span>])
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">phonenumber</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(
+            <span style="color:#a6e22e">attributeMap</span>[<span style="color:#e6db74">&#39;phonenumber&#39;</span>][<span style="color:#e6db74">&#39;value&#39;</span>]
+        )
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">firstname</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(
+            <span style="color:#a6e22e">attributeMap</span>[<span style="color:#e6db74">&#39;firstname&#39;</span>][<span style="color:#e6db74">&#39;value&#39;</span>]
+        )
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">lastname</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(
+            <span style="color:#a6e22e">attributeMap</span>[<span style="color:#e6db74">&#39;lastname&#39;</span>][<span style="color:#e6db74">&#39;value&#39;</span>]
+        )
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">attributeMap</span>)
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">note</span>)
+        document.<span style="color:#a6e22e">getElementById</span>(
+            <span style="color:#e6db74">&#39;logMsgs&#39;</span>
+        ).<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">note</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;br&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">phonenumber</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;br&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">firstname</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;br&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">lastname</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;br&gt;`</span>
+    })
+</code></pre></div><ol start="2">
+<li>src/component/ccp/ccp.component.jsx 의 render() 함수의 마지막 부분에 아래 소스를 추가합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logMsgsContainer&#34;</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logMsgsContainer&#34;</span>&gt;
+	&lt;<span style="color:#f92672">h2</span>&gt;Log Messages&lt;/<span style="color:#f92672">h2</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logMsgs&#34;</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{this.logMsgs}&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><ol start="3">
+<li>src/component/ccp/ccp.component.scss 파일을 추가하고, 아래 소스를 입력합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#a6e22e">.ccp-container</span> {
+	<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+	<span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">800</span><span style="color:#66d9ef">px</span>;
+	<span style="color:#a6e22e">border</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2px solid&#39;</span>;
+	<span style="color:#a6e22e">flex-direction</span><span style="color:#f92672">:</span> row;
+	<span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> flex;
+	<span style="color:#a6e22e">align-items</span><span style="color:#f92672">:</span> flex-start;
+
+	<span style="color:#a6e22e">.ccp</span> {
+		<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>;
+		<span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+	}
+
+	<span style="color:#a6e22e">.hidden_iframe_div</span> {
+		<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
+	}
+
+	<span style="color:#a6e22e">.loginFrm_div</span> {
+		<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
+	}
+
+	<span style="color:#a6e22e">.logMsgsContainer</span> {
+		<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>;
+		<span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+		<span style="color:#a6e22e">margin</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+	}
+}
+</code></pre></div><ol start="4">
+<li>src/component/ccp/ccp.component.jsx 에 ccp.component.scss 를 import 합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./ccp.component.scss&#39;</span>
+</code></pre></div><ol start="5">
+<li>src/component/ccp/ccp.component.jsx 전체 소스코드는 아래와 같습니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Auth</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;aws-amplify&#39;</span>
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;amazon-connect-streams&#39;</span>
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ccpAuthLogin</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./ccp.util&#39;</span>
+
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./ccp.component.scss&#39;</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CCP</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
+	<span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+		<span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>)
+		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createRef</span>()
+		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginFrm</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createRef</span>()
+		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {
+			<span style="color:#a6e22e">credentials</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+		}
+		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">logMsgs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createRef</span>()
+	}
+
+	<span style="color:#66d9ef">async</span> <span style="color:#a6e22e">componentDidMount</span>() {
+		<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">attributes</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Auth</span>.<span style="color:#a6e22e">currentAuthenticatedUser</span>()
+		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">attributes</span>.<span style="color:#a6e22e">email</span>)
+		<span style="color:#a6e22e">ccpAuthLogin</span>(<span style="color:#a6e22e">attributes</span>.<span style="color:#a6e22e">email</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">result</span>) =&gt; {
+			<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">ccpResult</span>)
+			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({ <span style="color:#a6e22e">credentials</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">ccpResult</span>) })
+			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginFrm</span>.<span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">submit</span>()
+
+			window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">initCCP</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>, {
+			 	<span style="color:#a6e22e">ccpUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://[인스턴스URL]/ccp-v2&#39;</span>,
+			 	<span style="color:#a6e22e">loginPopup</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+			 	<span style="color:#a6e22e">region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;us-east-1&#39;</span>,
+			 	<span style="color:#a6e22e">softphone</span><span style="color:#f92672">:</span> {
+			 		<span style="color:#a6e22e">allowFramedSoftphone</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+					<span style="color:#a6e22e">disableRingtone</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+				},
+			})
+
+			window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">contact</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">contact</span>) {
+				<span style="color:#a6e22e">contact</span>.<span style="color:#a6e22e">onConnected</span>(<span style="color:#66d9ef">function</span> () {
+					document.<span style="color:#a6e22e">getElementById</span>(
+						<span style="color:#e6db74">&#39;logMsgs&#39;</span>
+					).<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`onConnected(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">contact</span>.<span style="color:#a6e22e">getContactId</span>()<span style="color:#e6db74">}</span><span style="color:#e6db74">)&lt;br&gt;`</span>
+					<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">attributeMap</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">contact</span>.<span style="color:#a6e22e">getAttributes</span>()
+					<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">note</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">attributeMap</span>[<span style="color:#e6db74">&#39;note&#39;</span>][<span style="color:#e6db74">&#39;value&#39;</span>])
+					<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">phonenumber</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(
+						<span style="color:#a6e22e">attributeMap</span>[<span style="color:#e6db74">&#39;phonenumber&#39;</span>][<span style="color:#e6db74">&#39;value&#39;</span>]
+					)
+					<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">firstname</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(
+						<span style="color:#a6e22e">attributeMap</span>[<span style="color:#e6db74">&#39;firstname&#39;</span>][<span style="color:#e6db74">&#39;value&#39;</span>]
+					)
+					<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">lastname</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(
+						<span style="color:#a6e22e">attributeMap</span>[<span style="color:#e6db74">&#39;lastname&#39;</span>][<span style="color:#e6db74">&#39;value&#39;</span>]
+					)
+					<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">attributeMap</span>)
+					<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">note</span>)
+					document.<span style="color:#a6e22e">getElementById</span>(
+						<span style="color:#e6db74">&#39;logMsgs&#39;</span>
+					).<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">note</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;br&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">phonenumber</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;br&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">firstname</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;br&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">lastname</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;br&gt;`</span>
+				})
+			})
+		})
+	}
+
+	<span style="color:#a6e22e">componentWillUnmount</span>() {
+		window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">terminate</span>()
+		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">iframe</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">firstElementChild</span>
+		<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">iframe</span>) {
+			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">removeChild</span>(<span style="color:#a6e22e">iframe</span>)
+		}
+	}
+
+	<span style="color:#a6e22e">render</span>() {
+		<span style="color:#66d9ef">return</span> (
+			&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp-container&#34;</span>&gt;
+				&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp&#34;</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp&#34;</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>} /&gt;
+				&lt;<span style="color:#f92672">div</span>
+					<span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden_iframe_div&#34;</span>
+					<span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">visibility</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hidden&#39;</span> }}
+					<span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden_iframe_div&#34;</span>
+				&gt;
+					&lt;<span style="color:#f92672">iframe</span>
+						<span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hiddenframe&#34;</span>
+						<span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+						<span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden_iframe&#34;</span>
+						<span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden_iframe&#34;</span>
+						<span style="color:#a6e22e">frameBorder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>
+						<span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">visibility</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hidden&#39;</span> }}
+					&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+				&lt;/<span style="color:#f92672">div</span>&gt;
+				&lt;<span style="color:#f92672">div</span>
+					<span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;loginFrm_div&#34;</span>
+					<span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;loginFrm_div&#34;</span>
+					<span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">visibility</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hidden&#39;</span>, <span style="color:#a6e22e">textAlign</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;left&#39;</span> }}
+				&gt;
+					&lt;<span style="color:#f92672">form</span>
+						<span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginFrm</span>}
+						<span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;loginFrm&#34;</span>
+						<span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;POST&#34;</span>
+						<span style="color:#a6e22e">target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden_iframe&#34;</span>
+						<span style="color:#a6e22e">action</span><span style="color:#f92672">=</span>{
+							<span style="color:#e6db74">&#39;https://[인스턴스URL]/auth/sign-in&#39;</span>
+						}
+					&gt;
+						&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">htmlFor</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;credentials&#34;</span>&gt;<span style="color:#a6e22e">Credentials</span><span style="color:#f92672">:</span>&lt;/<span style="color:#f92672">label</span>&gt;
+						&lt;<span style="color:#f92672">input</span>
+							<span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+							<span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;credentials&#34;</span>
+							<span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;credentials&#34;</span>
+							<span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">credentials</span>}
+							<span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">e</span>) =&gt; {
+								<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({ <span style="color:#a6e22e">credentials</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span> })
+							}}
+						/&gt;
+					&lt;/<span style="color:#f92672">form</span>&gt;
+				&lt;/<span style="color:#f92672">div</span>&gt;
+				&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logMsgsContainer&#34;</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logMsgsContainer&#34;</span>&gt;
+					&lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">Log</span> <span style="color:#a6e22e">Messages</span>&lt;/<span style="color:#f92672">h2</span>&gt;
+					&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logMsgs&#34;</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">logMsgs</span>}&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+				&lt;/<span style="color:#f92672">div</span>&gt;
+			&lt;/<span style="color:#f92672">div</span>&gt;
+		)
+	}
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">CCP</span>
+</code></pre></div><ol start="6">
+<li><code>npm start</code> 를 실행하여 테스트합니다. 위에서 기록한 전화번호로 전화를 걸어 Attributes 들이 제대로 표시되는지도 확인합니다. 전화가 걸려오면 CCP에서 Accept 를 합니다. 그러면 아래와 같이 화면 오른쪽에 Contact flow 에서 입력했던 Attributes 들의 내용을 확인할 수 있습니다.</li>
+</ol>
+<p><img src="images/09.png" alt=""></p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/6.addrestapi/" title="6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/8.customerprofiles/" title="8. Customer Profiles 기능 추가하기" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1636617871"></script>
+    <script src="/js/jquery.sticky.js?1636617871"></script>
+    <script src="/js/featherlight.min.js?1636617871"></script>
+    <script src="/js/highlight.pack.js?1636617871"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1636617871"></script>
+    <script src="/js/learn.js?1636617871"></script>
+    <script src="/js/hugo-learn.js?1636617871"></script>
+
+    <link href="/mermaid/mermaid.css?1636617871" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1636617871"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

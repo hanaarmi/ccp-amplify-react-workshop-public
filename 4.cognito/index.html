@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="description" content="">
+<meta name="author" content="Jungkon Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>4. Cognito 로 로그인/로그아웃 구현하기 :: </title>
+
+    
+    <link href="/css/nucleus.css?1636617871" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1636617871" rel="stylesheet">
+    <link href="/css/hybrid.css?1636617871" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1636617871" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1636617871" rel="stylesheet">
+    <link href="/css/auto-complete.css?1636617871" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1636617871" rel="stylesheet">
+    <link href="/css/theme.css?1636617871" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1636617871" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1636617871" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1636617871"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/4.cognito/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px" />
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1636617871"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1636617871"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1636617871"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/1.amplify/" title="1. Amplify 로 React App 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1.amplify/">
+          1. Amplify 로 React App 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/2.connect/" title="2. Amazon Connect 인스턴스 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2.connect/">
+          2. Amazon Connect 인스턴스 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/3.ccp/" title="3. CCP 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3.ccp/">
+          3. CCP 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/4.cognito/" title="4. Cognito 로 로그인/로그아웃 구현하기" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/4.cognito/">
+          4. Cognito 로 로그인/로그아웃 구현하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/5.iam/" title="5. IAM 서비스에서 Role 설정하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5.iam/">
+          5. IAM 서비스에서 Role 설정하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/6.addrestapi/" title="6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6.addrestapi/">
+          6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/7.attribute/" title="7. Contact Flow 에서 설정한 Attribute 값 가져오기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7.attribute/">
+          7. Contact Flow 에서 설정한 Attribute 값 가져오기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/8.customerprofiles/" title="8. Customer Profiles 기능 추가하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8.customerprofiles/">
+          8. Customer Profiles 기능 추가하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credits</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2021 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>Amplify 로 React 기반 Amazon Connect CCP 구성하고, Cognito 로 SAML 기반 로그인 통합하기</a> > 4. Cognito 로 로그인/로그아웃 구현하기
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#amplify-를-이용하여-cognito-인증-추가하기">Amplify 를 이용하여 Cognito 인증 추가하기</a></li>
+        <li><a href="#로그인-ui-추가하기">로그인 UI 추가하기</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              4. Cognito 로 로그인/로그아웃 구현하기
+            </h1>
+          
+
+        
+
+
+
+
+	<p><img src="images/amplifyccparchi.png" alt=""></p>
+<h3 id="amplify-를-이용하여-cognito-인증-추가하기">Amplify 를 이용하여 Cognito 인증 추가하기</h3>
+<blockquote>
+<p><strong>Amplify Framework는 Amazon Cognito를 기본 인증 공급자로 사용합니다. Amazon Cognito는 사용자 등록, 인증, 계정 복구 및 기타 작업을 처리하는 강력한 사용자 디렉토리 서비스입니다. 이 튜토리얼에서는 Amazon Cognito 및 사용자 이름/암호 로그인을 사용하여 프로그램에 인증을 추가하는 방법에 대해 알아봅니다.</strong></p>
+</blockquote>
+<ol>
+<li>터미널에서 아래와 같이 실행합니다. amplify 를 이용해서 인증 관련 라이브러리를 설치합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">❯ amplify add auth
+...
+Using service: Cognito, provided by: awscloudformation
+...
+The current configured provider is Amazon Cognito.
+...
+Do you want to use the default authentication and security configuration? Default configuration
+Warning: you will not be able to edit these selections.
+How <span style="color:#66d9ef">do</span> you want users to be able to sign in? Email
+Do you want to configure advanced settings? No, I am <span style="color:#66d9ef">done</span>.
+Successfully added auth resource ccpdemof9bde27b locally
+...
+</code></pre></div><ol start="2">
+<li>터미널에서 아래와 같이 실행합니다. 로컬 소스를 빌드하고 이를 연결된 AWS 계정으로 프로비저닝합니다.</li>
+</ol>
+<pre><code>❯ amplify push
+✔ Successfully pulled backend environment dev from the cloud.
+    Current Environment: dev
+┌──────────┬─────────────────┬───────────┬───────────────────┐
+│ Category │ Resource name   │ Operation │ Provider plugin   │
+├──────────┼─────────────────┼───────────┼───────────────────┤
+│ Auth     │ ccpdemof9bde27b │ Create    │ awscloudformation │
+└──────────┴─────────────────┴───────────┴───────────────────┘
+? Are you sure you want to continue? Yes
+⠇ Updating resources in the cloud. This may take a few minutes...
+UPDATE_IN_PROGRESS amplify-ccpdemo-dev-145951 AWS::CloudFormation::Stack Thu Nov 04 2021 17:29:12 GMT+0900 (Korean Standard Time) User Initiated
+⠏ Updating resources in the cloud. This may take a few minutes...
+...
+✔ All resources are updated in the cloud
+</code></pre><ol>
+<li>터미널에서 아래와 같이 실행합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">❯ amplify console
+✔ Which site <span style="color:#66d9ef">do</span> you want to open? · Console
+</code></pre></div><ol start="4">
+<li>아래 화면과 같이 Amplify 작업 이력을 확인할 수 있습니다.
+<img src="images/01.png" alt=""></li>
+</ol>
+
+<div class="notices info" ><p>설정을 잘못했을 경우에는 아래와 같이 인증 기능을 제거한 이후 다시 추가할 수 있습니다.</p>
+</div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">❯ amplify status
+
+    Current Environment: dev
+
+┌──────────┬─────────────────┬───────────┬───────────────────┐
+│ Category │ Resource name   │ Operation │ Provider plugin   │
+├──────────┼─────────────────┼───────────┼───────────────────┤
+│ Auth     │ ccpdemof9bde27b │ Delete    │ awscloudformation │
+└──────────┴─────────────────┴───────────┴───────────────────┘    <span style="color:#e6db74">```</span>
+
+❯ amplify remove auth
+? Choose the resource you would want to remove ccpdemof9bde27b
+
+? Are you sure you want to delete the resource? This action deletes all files related to this resource from t
+he backend directory. Yes
+Successfully removed resource
+
+❯ amplify push
+...
+✔ Successfully pulled backend environment dev from the cloud.
+
+    Current Environment: dev
+
+┌──────────┬─────────────────┬───────────┬───────────────────┐
+│ Category │ Resource name   │ Operation │ Provider plugin   │
+├──────────┼─────────────────┼───────────┼───────────────────┤
+│ Auth     │ ccpdemof9bde27b │ Delete    │ awscloudformation │
+└──────────┴─────────────────┴───────────┴───────────────────┘
+? Are you sure you want to <span style="color:#66d9ef">continue</span>? Yes
+⠧ Updating resources in the cloud. This may take a few minutes...
+
+...
+
+</code></pre></div><h3 id="로그인-ui-추가하기">로그인 UI 추가하기</h3>
+<blockquote>
+<p><strong>이제 인증 서비스를 AWS에 구축했으므로 React 앱에 인증을 추가해야 합니다. 로그인 절차를 만드는 것은 상당히 어렵고 시간이 걸릴 수 있습니다. 하지만 Amplify Framework에는 aws-exports.js 파일에 지정된 구성을 사용하여 기본 UI를 손쉽게 추가할 수 있습니다.</strong></p>
+</blockquote>
+<ol>
+<li><strong>withAuthenticator, AmplifySignOut</strong> 컴포넌트를 임포트합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">withAuthenticator</span>, <span style="color:#a6e22e">AmplifySignOut</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@aws-amplify/ui-react&#39;</span>
+</code></pre></div><ol start="2">
+<li>default export 컴포넌트를 아래와 같이 <strong>withAuthenticator</strong> 로 wrapping 합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">withAuthenticator</span>(<span style="color:#a6e22e">App</span>)
+</code></pre></div><ol start="3">
+<li><strong>AmplifySignOut</strong> 컴포넌트를 추가합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+	<span style="color:#66d9ef">return</span> (
+		<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
+			<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">AmplifySignOut</span> <span style="color:#f92672">/&gt;</span>
+			<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">CCP</span> <span style="color:#f92672">/&gt;</span>
+		<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+	)
+}
+</code></pre></div><ol start="4">
+<li>전체 소스 코드는 다음과 같습니다.
+<ul>
+<li>src/App.js</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">withAuthenticator</span>, <span style="color:#a6e22e">AmplifySignOut</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@aws-amplify/ui-react&#39;</span>
+
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">CCP</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./component/ccp/ccp.component&#39;</span>
+
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./App.css&#39;</span>
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+	<span style="color:#66d9ef">return</span> (
+		<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
+			<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">AmplifySignOut</span> <span style="color:#f92672">/&gt;</span>
+			<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">CCP</span> <span style="color:#f92672">/&gt;</span>
+		<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+	)
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">withAuthenticator</span>(<span style="color:#a6e22e">App</span>)
+</code></pre></div><ol start="5">
+<li>App 을 실행합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm start
+</code></pre></div><ol start="6">
+<li>
+<p>웹브라우저를 통해 아래의 화면을 확인할 수 있습니다. 로그인을 위한 Cognito 서비스의 기본 UI 입니다. Create Account 버튼을 클릭하여 새로운 계정을 생성합니다. Amplify Framework 를 사용하고, 간단한 라이브러리/컴포넌트 추가만으로 이와 같이 로그인/로그아웃 기능을 추가할 수 있습니다.
+<img src="images/02.png" alt=""></p>
+</li>
+<li>
+<p>아래와 같이 본인의 정보를 이용하여 계정을 생성합니다. 이메일은 인증을 위한 확인 메일을 받아야하므로 실제 사용하는 이메일 주소를 입력해야합니다.
+<img src="images/03.png" alt=""></p>
+</li>
+<li>
+<p>이후 이메일 인증을 거쳐 계정 생성을 완료합니다. 계정 생성을 완료한 이후 브라우저의 개인 정보 보호 모드로 다시 http://localhost:3000 으로 접속해봅니다. 생성한 계정으로 로그인을 완료합니다. 그러면 아래와 같은 화면을 보게됩니다. Cognito 서비스 로그인은 성공했으나, CCP 로그인 계정과는 연동이 되지 않았기 때문에, Custom CCP 는 아래와 같이 제대로 로그인 되지 않습니다.
+<img src="images/04.png" alt=""></p>
+</li>
+</ol>
+
+<div class="notices note" ><p>이전 Chapter 에서 CCP 가 로그인 된 이유는, Connect Console 을 통해 로그인 한 이후 같은 브라우저에서 CCP 를 로딩했기 때문입니다. 브라우저의 개인 정보 보호모드(Chrome 브라우저의 경우 Incognito 모드)로 접속을 하면 이전 브라우저의 세션 정보가 공유되지 않기 때문에, 로그인과 같은 계정 관련 구현을 할 때는 개인 정보 보호모드로 테스트를 해야합니다. CCP 는 Firefox, Chrome 브라우저를 지원하므로 해당 브라우저에만 테스트가 가능합니다.</p>
+</div>
+
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/3.ccp/" title="3. CCP 구성"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/5.iam/" title="5. IAM 서비스에서 Role 설정하기" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.min.js?1636617871"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1636617871"></script>
+    <script src="/js/jquery.sticky.js?1636617871"></script>
+    <script src="/js/featherlight.min.js?1636617871"></script>
+    <script src="/js/highlight.pack.js?1636617871"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1636617871"></script>
+    <script src="/js/learn.js?1636617871"></script>
+    <script src="/js/hugo-learn.js?1636617871"></script>
+
+    <link href="/mermaid/mermaid.css?1636617871" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1636617871"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>
