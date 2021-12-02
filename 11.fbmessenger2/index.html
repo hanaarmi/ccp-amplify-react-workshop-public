@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tags :: </title>
+    <title>11. Facebook Messenger Chat 결합 2 :: </title>
 
     
     <link href="/css/nucleus.css?1638434553" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/11.fbmessenger2/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -318,8 +318,8 @@
   
     
     <li data-nav-id="/11.fbmessenger2/" title="11. Facebook Messenger Chat 결합 2" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/11.fbmessenger2/">
@@ -402,7 +402,7 @@
             
           
           
-            <a href='/'>Amplify 로 React 기반 Amazon Connect CCP 구성하고, Cognito 로 SAML 기반 로그인 통합하기</a> > Tags
+            <a href='/'>Amplify 로 React 기반 Amazon Connect CCP 구성하고, Cognito 로 SAML 기반 로그인 통합하기</a> > 11. Facebook Messenger Chat 결합 2
           
          
           
@@ -413,7 +413,21 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#aws-cdk-설치">AWS CDK 설치</a></li>
+        <li><a href="#프로젝트-배포">프로젝트 배포</a></li>
+      </ul>
+    </li>
+    <li><a href="#facebook-callback-url-설정">Facebook Callback URL 설정</a>
+      <ul>
+        <li><a href="#chat-테스트">Chat 테스트</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -429,9 +443,7 @@
           
             <h1>
               
-                taxonomy ::
-              
-              Tags
+              11. Facebook Messenger Chat 결합 2
             </h1>
           
 
@@ -440,11 +452,115 @@
 
 
 
-
-
+	<p><img src="images/fbarch.png" alt=""></p>
+<blockquote>
+<p><strong>이번 장에서는 AWS CDK 서비스를 이용하여 인프라 및 관련 코드를 Deploy 해보겠습니다.</strong></p>
+</blockquote>
+<h3 id="aws-cdk-설치">AWS CDK 설치</h3>
+<ol>
+<li>이미 CDK 를 Install 하신 분들은 다음 항목으로 넘어갑니다. CDK Install 을 위헤서는 AWS CLI 도 미리 설치되어 있어야합니다. AWS CLI 는 다음 링크를 참고하시기 바랍니다. <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html" target="_blank">Getting started with the AWS CLI
+</a>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm -g install typescript
+npm -g install aws-cdk
+cdk bootstrap aws://ACCOUNT_ID/AWS_REGION
+</code></pre></div><h3 id="프로젝트-배포">프로젝트 배포</h3>
+<ol>
+<li>
+<p>아래의 정보들이 미리 준비되어야합니다. 이전 장을 진행하면서 모두 기록해둔 정보입니다. 다시 한번 정리하시기 바랍니다.</p>
 <ul>
-	
+<li>Amazon Connect Instance ARN
+<ul>
+<li>ex) arn:aws:connect:us-east-1:111111111111:instance/3c01b303-4353-4619-c236-8e9989414a56</li>
 </ul>
+</li>
+<li>Amazon Connect Contact flow ID
+<ul>
+<li>ex) 3c01b303-4353-4619-c236-8e9989414a56</li>
+</ul>
+</li>
+<li>AWS Secert Manager ARN
+<ul>
+<li>ex) arn:aws:secretsmanager:ap-northeast-1:111111111111:secret:VoicemailSecret-HiKLP-VH3umh</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Git 을 이용하여 아래와 같이 message streaming api repository 를 복제합니다.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone git@github.com:amazon-connect/amazon-connect-message-streaming-examples.git
+</code></pre></div><ol start="3">
+<li>아래의 디렉토리로 이동합니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd amazon-connect-message-streaming-examples
+</code></pre></div><ol start="4">
+<li>아래와 같이 dependency module 들을 설치합니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install
+cd src/lambda/inboundMessageHandler
+npm install
+cd ../../..
+cd src/lambda/outboundMessageHandler
+npm install
+cd ../../..
+cd src/lambda/digitalChannelHealthCheck
+npm install
+cd ../../..
+</code></pre></div><ol start="5">
+<li>아래와 같이 CDK 프로젝트를 배포합니다. 위 1번에서 정리한 정보들을 잘 입력하여 실행합니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cdk deploy <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--context fbSecretArn<span style="color:#f92672">=[</span>AWS Secert Manager ARN<span style="color:#f92672">]</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--context amazonConnectArn<span style="color:#f92672">=[</span>Amazon Connect Instance ARN<span style="color:#f92672">]</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--context contactFlowId<span style="color:#f92672">=[</span>Amazon Connect Contact flow ID<span style="color:#f92672">]</span>
+</code></pre></div><ol start="6">
+<li>프로젝트가 모두 배포되기까지 수 분 정도 소요됩니다. 배포가 완료되고 나면 <strong>FacebookApiGatewayWebhook</strong> 정보를 기록해둡니다.</li>
+</ol>
+<h2 id="facebook-callback-url-설정">Facebook Callback URL 설정</h2>
+<ol>
+<li>Meta(Facebook) for Developers사이트 <a href="https://developers.facebook.com/" target="_blank">Meta for Developers</a>
+로 이동합니다.</li>
+<li>이전 장에서 만든 앱을 클릭합니다.</li>
+<li>Messenger, Settings 메뉴로 이동합니다.</li>
+<li>Webhooks 밑의 Callback URL 부분에 FacebookApiGatewayWebhook URL 을 입력합니다. Verify Token 으로는, 이전 장<a href="/10.fbmessenger1/#aws-secret-manager-설정">AWS Secret Manager 설정</a>
+ 에서 설정한 VERIFY_TOKEN 값을 입력합니다.</li>
+</ol>
+<p><img src="images/01.png" alt=""></p>
+<ol start="5">
+<li><strong>Add Subscriptions</strong> 버튼을 클릭합니다.</li>
+</ol>
+<p><img src="images/02.png" alt=""></p>
+<ol start="6">
+<li><strong>messages</strong> 항목을 선택합니다.</li>
+</ol>
+<p><img src="images/03.png" alt=""></p>
+<ol start="7">
+<li><strong>Save</strong> 버튼을 클릭합니다.</li>
+</ol>
+<h3 id="chat-테스트">Chat 테스트</h3>
+<ol>
+<li>8장에서 완성했던 CCP 를 접속합니다. 또는, Amazon Connect Console 에 접속해서 아래와 같이 오른쪽 상단의 아이콘을 클릭하여 기본 CCP를 접속하셔도 됩니다.</li>
+</ol>
+<p><img src="images/04.png" alt=""></p>
+<ol start="2">
+<li>CCP 에서 왼쪽 상단의 상담원 상태를 <strong>Available</strong> 로 변경합니다.</li>
+</ol>
+<p><img src="images/05.png" alt=""></p>
+<ol start="3">
+<li>Facebook 에 접속합니다. 아래 화면과 같이 Messenger 아이콘을 클릭하고, 이전에 만들었던 앱을 클릭합니다.</li>
+</ol>
+<p><img src="images/06.png" alt=""></p>
+<ol start="4">
+<li>아래와 같이 채팅창에서 테스트 메시지를 보내봅니다. CCP에서 Accpet 를 하면 채팅을 시작할 수 있습니다.</li>
+</ol>
+<p><img src="images/07.png" alt="">
+<img src="images/08.png" alt=""></p>
+
+
+
 
 
 <footer class=" footline" >
@@ -645,6 +761,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -664,6 +781,8 @@
 
 	 
 	 
+		
+			<a class="nav nav-prev" href="/10.fbmessenger1/" title="10. Facebook Messenger Chat 결합 1"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/1.amplify/" title="1. Amplify 로 React App 구성" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>

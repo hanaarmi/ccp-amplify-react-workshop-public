@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="generator" content="Hugo 0.89.4" />
     <meta name="description" content="">
 <meta name="author" content="Jungkon Kim">
 
@@ -12,20 +12,20 @@
     <title>6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기 :: </title>
 
     
-    <link href="/css/nucleus.css?1636617871" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1636617871" rel="stylesheet">
-    <link href="/css/hybrid.css?1636617871" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1636617871" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1636617871" rel="stylesheet">
-    <link href="/css/auto-complete.css?1636617871" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1636617871" rel="stylesheet">
-    <link href="/css/theme.css?1636617871" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1636617871" rel="stylesheet">
+    <link href="/css/nucleus.css?1638434553" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1638434553" rel="stylesheet">
+    <link href="/css/hybrid.css?1638434553" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1638434553" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1638434553" rel="stylesheet">
+    <link href="/css/auto-complete.css?1638434553" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1638434553" rel="stylesheet">
+    <link href="/css/theme.css?1638434553" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1638434553" rel="stylesheet">
     
-      <link href="/css/theme-aws.css?1636617871" rel="stylesheet">
+      <link href="/css/theme-aws.css?1638434553" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1636617871"></script>
+    <script src="/js/jquery-3.3.1.min.js?1638434553"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1636617871"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1636617871"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1638434553"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1638434553"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1636617871"></script>
+<script type="text/javascript" src="/js/search.js?1638434553"></script>
 
     
   </div>
@@ -263,6 +263,78 @@
  
 
           
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/9.chattest/" title="9. Chat 테스트 하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/9.chattest/">
+          9. Chat 테스트 하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/10.fbmessenger1/" title="10. Facebook Messenger Chat 결합 1" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/10.fbmessenger1/">
+          10. Facebook Messenger Chat 결합 1
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/11.fbmessenger2/" title="11. Facebook Messenger Chat 결합 2" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/11.fbmessenger2/">
+          11. Facebook Messenger Chat 결합 2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
          
     </ul>
 
@@ -382,10 +454,11 @@
 <ol>
 <li>프로젝트 루트 디렉토리에서 다음 커멘드를 실행합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">amplify add api
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">amplify add api
 </code></pre></div><ol start="2">
 <li>실행 후 아래와 같이 선택합니다. (? 질문: 이후 답변 참조)</li>
 </ol>
+
 
 
 <pre>
@@ -431,11 +504,10 @@ Some next steps:
 </pre>
 
 
-
 <ol start="3">
 <li>위 2번을 수행하던 중 선택한 Editor 로 Lambda Fuction 을 작성할 수 있습니다. 만약, Editor 가 자동으로 해당 파일을 열지 않았다면, 위 출력 결과를 기준으로 [프로젝트 루트 디렉토리]/<code>amplify/backend/function/ccplogin/src/app.js</code> 를 아래와 같이 수정합니다. 또한, 아래 소스코드 중 [Connect 인스턴스 ID] 로 표기된 부분은 실제 설치한 Connect 인스턴스 ID로 대체합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/*
 </span><span style="color:#75715e">Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 </span><span style="color:#75715e">Licensed under the Apache License, Version 2.0 (the &#34;License&#34;). You may not use this file except in compliance with the License. A copy of the License is located at
 </span><span style="color:#75715e">    http://aws.amazon.com/apache2.0/
@@ -585,12 +657,13 @@ Some next steps:
 </code></pre></div><ol start="4">
 <li>프로젝트 루트 디렉토리에서 아래 커멘드를 실행합니다. 완료하려면 수분동안 기다려야합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">amplify push
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">amplify push
 </code></pre></div><ol start="5">
 <li>모두 완료되면 아래 커멘드로 현재 amplify 에 추가된 기능을 확인할 수 있습니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">amplify status
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">amplify status
 </code></pre></div><p>아래와 같이 Function, Auth, Api 가 아래와 같이 추가되어있으면 정상입니다.</p>
+
 
 
 <pre>
@@ -613,17 +686,16 @@ REST API endpoint: https://2vlz9asdz0.execute-api.us-east-1.amazonaws.com/dev
 </pre>
 
 
-
 <ol start="6">
 <li>아래 커멘드로 Console 에 연결하여 Lambda 함수가 제대로 반영되었는지 확인합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">amplify console <span style="color:#66d9ef">function</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">amplify console <span style="color:#66d9ef">function</span>
 </code></pre></div>
+
 
 <pre>
 ? Please select from one of the below mentioned services: <b style="color:DarkTurquoise">Lambda function (serverless function)</b>
 </pre>
-
 
 
 <p><img src="images/01.png" alt=""></p>
@@ -635,7 +707,7 @@ REST API endpoint: https://2vlz9asdz0.execute-api.us-east-1.amazonaws.com/dev
 <ol start="8">
 <li>src/component/ccp.component.jsx 를 아래와 같이 수정합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
 <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Auth</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;aws-amplify&#39;</span>
 <span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;amazon-connect-streams&#39;</span>
 <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ccpAuthLogin</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./ccp.util&#39;</span>
@@ -735,7 +807,7 @@ REST API endpoint: https://2vlz9asdz0.execute-api.us-east-1.amazonaws.com/dev
 </code></pre></div><ol start="9">
 <li>src/component/ccp.util.js 파일을 추가하고 아래와 같이 소스코드를 입력합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">API</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;aws-amplify&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">API</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;aws-amplify&#39;</span>
 
 <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ccpAuthLogin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">email</span>) =&gt; {
 	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">apiName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ccplogin&#39;</span>
@@ -921,6 +993,54 @@ REST API endpoint: https://2vlz9asdz0.execute-api.us-east-1.amazonaws.com/dev
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -943,19 +1063,19 @@ REST API endpoint: https://2vlz9asdz0.execute-api.us-east-1.amazonaws.com/dev
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1636617871"></script>
-    <script src="/js/perfect-scrollbar.min.js?1636617871"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1636617871"></script>
-    <script src="/js/jquery.sticky.js?1636617871"></script>
-    <script src="/js/featherlight.min.js?1636617871"></script>
-    <script src="/js/highlight.pack.js?1636617871"></script>
+    <script src="/js/clipboard.min.js?1638434553"></script>
+    <script src="/js/perfect-scrollbar.min.js?1638434553"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1638434553"></script>
+    <script src="/js/jquery.sticky.js?1638434553"></script>
+    <script src="/js/featherlight.min.js?1638434553"></script>
+    <script src="/js/highlight.pack.js?1638434553"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1636617871"></script>
-    <script src="/js/learn.js?1636617871"></script>
-    <script src="/js/hugo-learn.js?1636617871"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1638434553"></script>
+    <script src="/js/learn.js?1638434553"></script>
+    <script src="/js/hugo-learn.js?1638434553"></script>
 
-    <link href="/mermaid/mermaid.css?1636617871" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1636617871"></script>
+    <link href="/mermaid/mermaid.css?1638434553" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1638434553"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

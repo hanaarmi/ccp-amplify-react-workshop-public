@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="generator" content="Hugo 0.89.4" />
     <meta name="description" content="">
 <meta name="author" content="Jungkon Kim">
 
@@ -12,20 +12,20 @@
     <title>4. Cognito 로 로그인/로그아웃 구현하기 :: </title>
 
     
-    <link href="/css/nucleus.css?1636617871" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1636617871" rel="stylesheet">
-    <link href="/css/hybrid.css?1636617871" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1636617871" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1636617871" rel="stylesheet">
-    <link href="/css/auto-complete.css?1636617871" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1636617871" rel="stylesheet">
-    <link href="/css/theme.css?1636617871" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1636617871" rel="stylesheet">
+    <link href="/css/nucleus.css?1638434553" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1638434553" rel="stylesheet">
+    <link href="/css/hybrid.css?1638434553" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1638434553" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1638434553" rel="stylesheet">
+    <link href="/css/auto-complete.css?1638434553" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1638434553" rel="stylesheet">
+    <link href="/css/theme.css?1638434553" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1638434553" rel="stylesheet">
     
-      <link href="/css/theme-aws.css?1636617871" rel="stylesheet">
+      <link href="/css/theme-aws.css?1638434553" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1636617871"></script>
+    <script src="/js/jquery-3.3.1.min.js?1638434553"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1636617871"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1636617871"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1638434553"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1638434553"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1636617871"></script>
+<script type="text/javascript" src="/js/search.js?1638434553"></script>
 
     
   </div>
@@ -263,6 +263,78 @@
  
 
           
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/9.chattest/" title="9. Chat 테스트 하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/9.chattest/">
+          9. Chat 테스트 하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/10.fbmessenger1/" title="10. Facebook Messenger Chat 결합 1" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/10.fbmessenger1/">
+          10. Facebook Messenger Chat 결합 1
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/11.fbmessenger2/" title="11. Facebook Messenger Chat 결합 2" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/11.fbmessenger2/">
+          11. Facebook Messenger Chat 결합 2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
          
     </ul>
 
@@ -383,7 +455,7 @@
 <ol>
 <li>터미널에서 아래와 같이 실행합니다. amplify 를 이용해서 인증 관련 라이브러리를 설치합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">❯ amplify add auth
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">❯ amplify add auth
 ...
 Using service: Cognito, provided by: awscloudformation
 ...
@@ -398,7 +470,7 @@ Successfully added auth resource ccpdemof9bde27b locally
 </code></pre></div><ol start="2">
 <li>터미널에서 아래와 같이 실행합니다. 로컬 소스를 빌드하고 이를 연결된 AWS 계정으로 프로비저닝합니다.</li>
 </ol>
-<pre><code>❯ amplify push
+<pre tabindex="0"><code>❯ amplify push
 ✔ Successfully pulled backend environment dev from the cloud.
     Current Environment: dev
 ┌──────────┬─────────────────┬───────────┬───────────────────┐
@@ -415,7 +487,7 @@ UPDATE_IN_PROGRESS amplify-ccpdemo-dev-145951 AWS::CloudFormation::Stack Thu Nov
 </code></pre><ol>
 <li>터미널에서 아래와 같이 실행합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">❯ amplify console
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">❯ amplify console
 ✔ Which site <span style="color:#66d9ef">do</span> you want to open? · Console
 </code></pre></div><ol start="4">
 <li>아래 화면과 같이 Amplify 작업 이력을 확인할 수 있습니다.
@@ -425,7 +497,7 @@ UPDATE_IN_PROGRESS amplify-ccpdemo-dev-145951 AWS::CloudFormation::Stack Thu Nov
 <div class="notices info" ><p>설정을 잘못했을 경우에는 아래와 같이 인증 기능을 제거한 이후 다시 추가할 수 있습니다.</p>
 </div>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">❯ amplify status
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">❯ amplify status
 
     Current Environment: dev
 
@@ -465,15 +537,15 @@ Successfully removed resource
 <ol>
 <li><strong>withAuthenticator, AmplifySignOut</strong> 컴포넌트를 임포트합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">withAuthenticator</span>, <span style="color:#a6e22e">AmplifySignOut</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@aws-amplify/ui-react&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">withAuthenticator</span>, <span style="color:#a6e22e">AmplifySignOut</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@aws-amplify/ui-react&#39;</span>
 </code></pre></div><ol start="2">
 <li>default export 컴포넌트를 아래와 같이 <strong>withAuthenticator</strong> 로 wrapping 합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">withAuthenticator</span>(<span style="color:#a6e22e">App</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">withAuthenticator</span>(<span style="color:#a6e22e">App</span>)
 </code></pre></div><ol start="3">
 <li><strong>AmplifySignOut</strong> 컴포넌트를 추가합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
 	<span style="color:#66d9ef">return</span> (
 		<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
 			<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">AmplifySignOut</span> <span style="color:#f92672">/&gt;</span>
@@ -488,7 +560,7 @@ Successfully removed resource
 </ul>
 </li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">withAuthenticator</span>, <span style="color:#a6e22e">AmplifySignOut</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@aws-amplify/ui-react&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">withAuthenticator</span>, <span style="color:#a6e22e">AmplifySignOut</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@aws-amplify/ui-react&#39;</span>
 
 <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">CCP</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./component/ccp/ccp.component&#39;</span>
 
@@ -507,7 +579,7 @@ Successfully removed resource
 </code></pre></div><ol start="5">
 <li>App 을 실행합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm start
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm start
 </code></pre></div><ol start="6">
 <li>
 <p>웹브라우저를 통해 아래의 화면을 확인할 수 있습니다. 로그인을 위한 Cognito 서비스의 기본 UI 입니다. Create Account 버튼을 클릭하여 새로운 계정을 생성합니다. Amplify Framework 를 사용하고, 간단한 라이브러리/컴포넌트 추가만으로 이와 같이 로그인/로그아웃 기능을 추가할 수 있습니다.
@@ -696,6 +768,54 @@ Successfully removed resource
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -718,19 +838,19 @@ Successfully removed resource
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1636617871"></script>
-    <script src="/js/perfect-scrollbar.min.js?1636617871"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1636617871"></script>
-    <script src="/js/jquery.sticky.js?1636617871"></script>
-    <script src="/js/featherlight.min.js?1636617871"></script>
-    <script src="/js/highlight.pack.js?1636617871"></script>
+    <script src="/js/clipboard.min.js?1638434553"></script>
+    <script src="/js/perfect-scrollbar.min.js?1638434553"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1638434553"></script>
+    <script src="/js/jquery.sticky.js?1638434553"></script>
+    <script src="/js/featherlight.min.js?1638434553"></script>
+    <script src="/js/highlight.pack.js?1638434553"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1636617871"></script>
-    <script src="/js/learn.js?1636617871"></script>
-    <script src="/js/hugo-learn.js?1636617871"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1638434553"></script>
+    <script src="/js/learn.js?1638434553"></script>
+    <script src="/js/hugo-learn.js?1638434553"></script>
 
-    <link href="/mermaid/mermaid.css?1636617871" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1636617871"></script>
+    <link href="/mermaid/mermaid.css?1638434553" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1638434553"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="generator" content="Hugo 0.89.4" />
     <meta name="description" content="">
 <meta name="author" content="Jungkon Kim">
 
@@ -12,20 +12,20 @@
     <title>7. Contact Flow 에서 설정한 Attribute 값 가져오기 :: </title>
 
     
-    <link href="/css/nucleus.css?1636617871" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1636617871" rel="stylesheet">
-    <link href="/css/hybrid.css?1636617871" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1636617871" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1636617871" rel="stylesheet">
-    <link href="/css/auto-complete.css?1636617871" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1636617871" rel="stylesheet">
-    <link href="/css/theme.css?1636617871" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1636617871" rel="stylesheet">
+    <link href="/css/nucleus.css?1638434553" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1638434553" rel="stylesheet">
+    <link href="/css/hybrid.css?1638434553" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1638434553" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1638434553" rel="stylesheet">
+    <link href="/css/auto-complete.css?1638434553" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1638434553" rel="stylesheet">
+    <link href="/css/theme.css?1638434553" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1638434553" rel="stylesheet">
     
-      <link href="/css/theme-aws.css?1636617871" rel="stylesheet">
+      <link href="/css/theme-aws.css?1638434553" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1636617871"></script>
+    <script src="/js/jquery-3.3.1.min.js?1638434553"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1636617871"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1636617871"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1638434553"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1638434553"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1636617871"></script>
+<script type="text/javascript" src="/js/search.js?1638434553"></script>
 
     
   </div>
@@ -263,6 +263,78 @@
  
 
           
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/9.chattest/" title="9. Chat 테스트 하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/9.chattest/">
+          9. Chat 테스트 하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/10.fbmessenger1/" title="10. Facebook Messenger Chat 결합 1" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/10.fbmessenger1/">
+          10. Facebook Messenger Chat 결합 1
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/11.fbmessenger2/" title="11. Facebook Messenger Chat 결합 2" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/11.fbmessenger2/">
+          11. Facebook Messenger Chat 결합 2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
          
     </ul>
 
@@ -395,7 +467,7 @@
 <ol start="4">
 <li>CCP 에서 전달 받을 Attributes 를 임의로 입력할 수 있습니다. 여기에서는 아래와 같은 정보를 입력해봅니다. 이후 Save 버튼을 클릭하여 저장합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">phonenumber : 010-1234-5679
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">phonenumber : 010-1234-5679
 firstname : Jungkon
 lastname : Kim
 </code></pre></div><p><img src="images/04.png" alt=""></p>
@@ -419,7 +491,7 @@ lastname : Kim
 <ol>
 <li>src/component/ccp/ccp.component.jsx 의 componentDidMonut() 함수의 마지막 부분에 아래 소스를 추가합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react">window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">contact</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">contact</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react">window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">contact</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">contact</span>) {
     <span style="color:#a6e22e">contact</span>.<span style="color:#a6e22e">onConnected</span>(<span style="color:#66d9ef">function</span> () {
         document.<span style="color:#a6e22e">getElementById</span>(
             <span style="color:#e6db74">&#39;logMsgs&#39;</span>
@@ -444,14 +516,14 @@ lastname : Kim
 </code></pre></div><ol start="2">
 <li>src/component/ccp/ccp.component.jsx 의 render() 함수의 마지막 부분에 아래 소스를 추가합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logMsgsContainer&#34;</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logMsgsContainer&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logMsgsContainer&#34;</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logMsgsContainer&#34;</span>&gt;
 	&lt;<span style="color:#f92672">h2</span>&gt;Log Messages&lt;/<span style="color:#f92672">h2</span>&gt;
 	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logMsgs&#34;</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{this.logMsgs}&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
 &lt;/<span style="color:#f92672">div</span>&gt;
 </code></pre></div><ol start="3">
 <li>src/component/ccp/ccp.component.scss 파일을 추가하고, 아래 소스를 입력합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#a6e22e">.ccp-container</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#a6e22e">.ccp-container</span> {
 	<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
 	<span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">800</span><span style="color:#66d9ef">px</span>;
 	<span style="color:#a6e22e">border</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2px solid&#39;</span>;
@@ -481,11 +553,11 @@ lastname : Kim
 </code></pre></div><ol start="4">
 <li>src/component/ccp/ccp.component.jsx 에 ccp.component.scss 를 import 합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./ccp.component.scss&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./ccp.component.scss&#39;</span>
 </code></pre></div><ol start="5">
 <li>src/component/ccp/ccp.component.jsx 전체 소스코드는 아래와 같습니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
 <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Auth</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;aws-amplify&#39;</span>
 <span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;amazon-connect-streams&#39;</span>
 <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ccpAuthLogin</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./ccp.util&#39;</span>
@@ -783,6 +855,54 @@ lastname : Kim
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -805,19 +925,19 @@ lastname : Kim
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1636617871"></script>
-    <script src="/js/perfect-scrollbar.min.js?1636617871"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1636617871"></script>
-    <script src="/js/jquery.sticky.js?1636617871"></script>
-    <script src="/js/featherlight.min.js?1636617871"></script>
-    <script src="/js/highlight.pack.js?1636617871"></script>
+    <script src="/js/clipboard.min.js?1638434553"></script>
+    <script src="/js/perfect-scrollbar.min.js?1638434553"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1638434553"></script>
+    <script src="/js/jquery.sticky.js?1638434553"></script>
+    <script src="/js/featherlight.min.js?1638434553"></script>
+    <script src="/js/highlight.pack.js?1638434553"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1636617871"></script>
-    <script src="/js/learn.js?1636617871"></script>
-    <script src="/js/hugo-learn.js?1636617871"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1638434553"></script>
+    <script src="/js/learn.js?1638434553"></script>
+    <script src="/js/hugo-learn.js?1638434553"></script>
 
-    <link href="/mermaid/mermaid.css?1636617871" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1636617871"></script>
+    <link href="/mermaid/mermaid.css?1638434553" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1638434553"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

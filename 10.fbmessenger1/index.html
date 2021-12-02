@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tags :: </title>
+    <title>10. Facebook Messenger Chat 결합 1 :: </title>
 
     
     <link href="/css/nucleus.css?1638434553" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/10.fbmessenger1/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -294,8 +294,8 @@
   
     
     <li data-nav-id="/10.fbmessenger1/" title="10. Facebook Messenger Chat 결합 1" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/10.fbmessenger1/">
@@ -402,7 +402,7 @@
             
           
           
-            <a href='/'>Amplify 로 React 기반 Amazon Connect CCP 구성하고, Cognito 로 SAML 기반 로그인 통합하기</a> > Tags
+            <a href='/'>Amplify 로 React 기반 Amazon Connect CCP 구성하고, Cognito 로 SAML 기반 로그인 통합하기</a> > 10. Facebook Messenger Chat 결합 1
           
          
           
@@ -413,7 +413,17 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#facebook-messenger-설정">Facebook messenger 설정</a></li>
+        <li><a href="#aws-secret-manager-설정">AWS Secret Manager 설정</a></li>
+        <li><a href="#amazon-connect-instance-정보-기록">Amazon Connect Instance 정보 기록</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -429,9 +439,7 @@
           
             <h1>
               
-                taxonomy ::
-              
-              Tags
+              10. Facebook Messenger Chat 결합 1
             </h1>
           
 
@@ -440,11 +448,97 @@
 
 
 
+	<p><img src="images/fbarch.png" alt=""></p>
+<blockquote>
+<p><strong>Amazon Connect Chat 과 연동할 수 있는 클라이언트는 다양합니다. 기본적으로 웹 사이트에 Javascript 형태로 embed 할 수 있습니다. 또한, Social messenger provider 와의 결합도 API 형태로 지원합니다. 여기에서는 Facebook messenger 와 연동을 통해 상담을 할 수 있게 만들어 봅니다.</strong></p>
+</blockquote>
+<h3 id="facebook-messenger-설정">Facebook messenger 설정</h3>
+<blockquote>
+<p>Facebook messenger 설정을 진행합니다. Facebook App 을 만들고, Messenger 기능을 사용 할 수 있도록 설정합니다. 이 Messenger를 통해 Amazon Connect 의 상담사와 대화할 수 있습니다.</p>
+</blockquote>
+<ol>
+<li>Meta(Facebook) for Developers사이트 <a href="https://developers.facebook.com/" target="_blank">https://developers.facebook.com</a>
+로 이동합니다.</li>
+<li><strong>My Apps</strong> 메뉴를 클릭합니다.</li>
+<li><strong>Create App</strong> 메뉴를 클릭합니다.</li>
+</ol>
+<p><img src="images/01.png" alt=""></p>
+<ol start="4">
+<li>Type 으로 Business 를 선택합니다.</li>
+<li><strong>Display name</strong>, <strong>App Contact Email</strong> 정보를 입력하고 <strong>Create App</strong> 버튼을 클릭합니다.</li>
+</ol>
+<p><img src="images/02.png" alt=""></p>
+<ol start="6">
+<li><strong>Settings</strong> -&gt; <strong>Basic</strong> 메뉴로 이동합니다. <strong>Show</strong> 버튼을 클릭하고 App Secrect 정보를 복사하여 기록해둡니다. 이후 설정 시 사용할 예정입니다.</li>
+</ol>
+<p><img src="images/03.png" alt=""></p>
+<ol start="7">
+<li><strong>Dashboard</strong> 메뉴로 이동합니다. Messenger 항목의 <strong>Set up</strong> 버튼을 클릭합니다.</li>
+</ol>
+<p><img src="images/04.png" alt=""></p>
+<ol start="8">
+<li>
+<p><strong>Create New Page</strong> 버튼을 클릭합니다. (새로운 탭이 열립니다.)</p>
+</li>
+<li>
+<p>Page Name, Category 정보를 입력하고 <strong>Make a page</strong> 버튼을 클릭합니다.</p>
+</li>
+<li>
+<p>다시 이전 탭으로 돌아와서 <strong>Add or Remove Pages</strong> 를 클릭합니다. 로그인 관련 팝업이 보이고, 위에서 만든 페이지를 선택하며, 기타 설정등을 진행합니다.</p>
+</li>
+</ol>
+<p><img src="images/05.png" alt=""></p>
+<ol start="11">
+<li><strong>Generate Token</strong> 버튼을 클릭하여 Token 정보를 확인합니다. 이 정보는 기록해둡니다.</li>
+</ol>
+<p><img src="images/06.png" alt=""></p>
+<h3 id="aws-secret-manager-설정">AWS Secret Manager 설정</h3>
+<ol>
+<li>AWS Console 에 접속합니다.</li>
+<li><strong>Secret Manager</strong> 서비스로 이동합니다. <strong>Store a new secret</strong> 버튼을 클릭합니다.</li>
+</ol>
+<p><img src="images/07.png" alt=""></p>
+<ol start="3">
+<li><strong>Other type of secret</strong> 을 선택하고, Key/value 로 앞서 기록해 둔 App Secret 정보와 Page Token 정보를 아래와 같이 입력합니다. VERIFY_TOKEN은 임의의 문자열을 입력하고 이를 기록해둡니다. 이후 <strong>Next</strong> 버튼을 클릭합니다.</li>
+</ol>
+<p><img src="images/08.png" alt=""></p>
+<ol start="4">
+<li>이후 <strong>Secret name</strong> 을 입력하고 <strong>Next</strong> 버튼을 클릭하여 진행합니다.</li>
+<li>이후 <strong>Next</strong> 버튼을 클릭하고 <strong>Store</strong> 버튼을 클릭하여 저장합니다.</li>
+<li>이후 Secret Manager 초기 화면에서 생성한 Secret 을 선택한 후 <strong>Secret ARN</strong> 정보를 기록해둡니다.</li>
+</ol>
+<p><img src="images/09.png" alt=""></p>
+<h3 id="amazon-connect-instance-정보-기록">Amazon Connect Instance 정보 기록</h3>
+<ol>
+<li>AWS Console 에서 <strong>Amazon Connect</strong> 서비스로 이동합니다. 이전 장에서 생성했던 인스턴스를 클릭합니다.</li>
+</ol>
+<p><img src="images/10.png" alt=""></p>
+<ol start="2">
+<li>아래 ARN 정보를 기록해둡니다.</li>
+</ol>
+<p><img src="images/11.png" alt=""></p>
+<ol start="3">
+<li>아래 링크를 통해 Connect Console 에 접속합니다.</li>
+</ol>
+<p><img src="images/12.png" alt=""></p>
+<ol start="4">
+<li>Connect Console에 접속한 이후 <strong>Contact flows</strong> 메뉴로 이동 후, <strong>Sample inbound flow (first contact experience)</strong> 를 클릭합니다. 아래 화면과 같이 <strong>Contact flow ARN</strong> 을 복사합니다.</li>
+</ol>
+<p><img src="images/13.png" alt=""></p>
+<ol start="5">
+<li>위에서 복사한 Contact flow ARN 중에서 아래 강조된 부분과 같이 Contact flow ID 만 복사하여 기록해둡니다. Contact flow ID 는 참고로 이와 같은 형태의 숫자와 문자의 조합입니다. ex) 4893202c-0002-4b3c-887c-4125b523f051</li>
+</ol>
 
 
-<ul>
-	
-</ul>
+
+<pre>
+arn:aws:connect:[Region]:[Account ID]:instance/[Amazon Connect Instance ID]/contact-flow/<b style="color:DarkTurquoise">[Contact flow ID]</b>
+</pre>
+
+
+
+
+
 
 
 <footer class=" footline" >
@@ -629,6 +723,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -645,6 +740,9 @@
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -665,8 +763,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/9.chattest/" title="9. Chat 테스트 하기"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/1.amplify/" title="1. Amplify 로 React App 구성" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/11.fbmessenger2/" title="11. Facebook Messenger Chat 결합 2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
