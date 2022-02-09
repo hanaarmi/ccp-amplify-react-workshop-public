@@ -12,20 +12,20 @@
     <title>1. Amplify 로 React App 구성 :: </title>
 
     
-    <link href="/css/nucleus.css?1638434553" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1638434553" rel="stylesheet">
-    <link href="/css/hybrid.css?1638434553" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1638434553" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1638434553" rel="stylesheet">
-    <link href="/css/auto-complete.css?1638434553" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1638434553" rel="stylesheet">
-    <link href="/css/theme.css?1638434553" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1638434553" rel="stylesheet">
+    <link href="/css/nucleus.css?1644387090" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1644387090" rel="stylesheet">
+    <link href="/css/hybrid.css?1644387090" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1644387090" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1644387090" rel="stylesheet">
+    <link href="/css/auto-complete.css?1644387090" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1644387090" rel="stylesheet">
+    <link href="/css/theme.css?1644387090" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1644387090" rel="stylesheet">
     
-      <link href="/css/theme-aws.css?1638434553" rel="stylesheet">
+      <link href="/css/theme-aws.css?1644387090" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1638434553"></script>
+    <script src="/js/jquery-3.3.1.min.js?1644387090"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1638434553"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1638434553"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1644387090"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1644387090"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1638434553"></script>
+<script type="text/javascript" src="/js/search.js?1644387090"></script>
 
     
   </div>
@@ -420,6 +420,7 @@
         <li><a href="#사전-설정">사전 설정</a></li>
         <li><a href="#react-app-구성">React App 구성</a></li>
         <li><a href="#amplify-cli-로-aws-backend-설정">Amplify CLI 로 AWS Backend 설정</a></li>
+        <li><a href="#node-modules-dependency-version-문제">node modules dependency version 문제</a></li>
       </ul>
     </li>
   </ul>
@@ -510,19 +511,33 @@ npm start
 <ol>
 <li>Amplify 를 초기화합니다. 프로젝트 폴더에서 아래와 같이 실행합니다. 이후 CLI 실행 시 물어보는 질문에 대해서는 아래와 같이 선택합니다.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">amplify init
-Note: It is recommended to run this command from the root of your app directory
-? Do you want to use an existing environment? Yes
-? Choose the environment you would like to use: dev
-? Choose your default editor: Visual Studio Code
-Using default provider  awscloudformation
-⠋ Initializing your environment: dev<span style="color:#f92672">(</span>node:11595<span style="color:#f92672">)</span>
-✔ Initialized provider successfully.
-Initialized your environment successfully.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Note: It is recommended to run this command from the root of your app directory
+? Enter a name <span style="color:#66d9ef">for</span> the project ccpamplifyreactdemo
+The following configuration will be applied:
 
-Your project has been successfully initialized and connected to the cloud!
+Project information
+| Name: ccpamplifyreactdemo
+| Environment: dev
+| Default editor: Visual Studio Code
+| App type: javascript
+| Javascript framework: react
+| Source Directory Path: src
+| Distribution Directory Path: build
+| Build Command: npm run-script build
+| Start Command: npm run-script start
+
+? Initialize the project with the above configuration? Yes
+Using default provider  awscloudformation
+? Select the authentication method you want to use: AWS profile
+
+For more information on AWS Profiles, see:
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
+
+? Please choose the profile you want to use default
+Adding backend environment dev to AWS Amplify app: d8bf3w0nz2vgt
+⠼ Initializing project in the cloud...
 </code></pre></div>
-<div class="notices info" ><p>environment 이름(현재는 dev)이나 default editor 설정을 변경하고 싶을 경우, 첫번째 질문시 No 를 선택하고 원하는 설정을 해도 됩니다.</p>
+<div class="notices info" ><p>environment 이름(현재는 dev)이나 default editor 설정을 변경하고 싶을 경우, &ldquo;Initialize the project with the above configuration?&rdquo; 질문시 No 를 선택하고 원하는 설정을 해도 됩니다.</p>
 </div>
 
 <ol start="2">
@@ -571,6 +586,52 @@ Your project has been successfully initialized and connected to the cloud!
     &lt;/<span style="color:#f92672">React.StrictMode</span>&gt;,
     document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
 )
+</code></pre></div><blockquote>
+<p><strong>이제 Amply를 초기 설정이 완료됐습니다. Amply CLI를 사용하여 기능을 추가하거나 제거하고 백엔드 구성을 업데이트하면 aws-exports.js의 구성이 자동으로 업데이트됩니다.</strong></p>
+</blockquote>
+<hr>
+<h3 id="node-modules-dependency-version-문제">node modules dependency version 문제</h3>
+<ol>
+<li>빌드 시 오류가 있을 수 있습니다. 대부분은 module 들의 버전이 맞지 않는 경우일 수 있습니다. 아래 packcage.json 의 버전을 참고하여 동일한 버전으로 수정 후 다시 빌드하시기 바랍니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;ccp-amplify-react-demo&#34;</span>,
+  <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0.1.0&#34;</span>,
+  <span style="color:#f92672">&#34;private&#34;</span>: <span style="color:#66d9ef">true</span>,
+  <span style="color:#f92672">&#34;dependencies&#34;</span>: {
+    <span style="color:#f92672">&#34;@aws-amplify/ui-react&#34;</span>: <span style="color:#e6db74">&#34;^1.2.15&#34;</span>,
+    <span style="color:#f92672">&#34;@testing-library/jest-dom&#34;</span>: <span style="color:#e6db74">&#34;^5.11.4&#34;</span>,
+    <span style="color:#f92672">&#34;@testing-library/react&#34;</span>: <span style="color:#e6db74">&#34;^11.1.0&#34;</span>,
+    <span style="color:#f92672">&#34;@testing-library/user-event&#34;</span>: <span style="color:#e6db74">&#34;^12.1.10&#34;</span>,
+    <span style="color:#f92672">&#34;amazon-connect-streams&#34;</span>: <span style="color:#e6db74">&#34;^1.7.4&#34;</span>,
+    <span style="color:#f92672">&#34;aws-amplify&#34;</span>: <span style="color:#e6db74">&#34;^4.2.9&#34;</span>,
+    <span style="color:#f92672">&#34;react&#34;</span>: <span style="color:#e6db74">&#34;^17.0.2&#34;</span>,
+    <span style="color:#f92672">&#34;react-dom&#34;</span>: <span style="color:#e6db74">&#34;^17.0.2&#34;</span>,
+    <span style="color:#f92672">&#34;react-scripts&#34;</span>: <span style="color:#e6db74">&#34;4.0.3&#34;</span>,
+    <span style="color:#f92672">&#34;sass&#34;</span>: <span style="color:#e6db74">&#34;^1.43.4&#34;</span>,
+    <span style="color:#f92672">&#34;web-vitals&#34;</span>: <span style="color:#e6db74">&#34;^1.0.1&#34;</span>
+  },
+  <span style="color:#f92672">&#34;scripts&#34;</span>: {
+    <span style="color:#f92672">&#34;start&#34;</span>: <span style="color:#e6db74">&#34;react-scripts start&#34;</span>,
+    <span style="color:#f92672">&#34;build&#34;</span>: <span style="color:#e6db74">&#34;react-scripts build&#34;</span>,
+    <span style="color:#f92672">&#34;test&#34;</span>: <span style="color:#e6db74">&#34;react-scripts test&#34;</span>,
+    <span style="color:#f92672">&#34;eject&#34;</span>: <span style="color:#e6db74">&#34;react-scripts eject&#34;</span>
+  },
+  <span style="color:#f92672">&#34;eslintConfig&#34;</span>: {
+    <span style="color:#f92672">&#34;extends&#34;</span>: [<span style="color:#e6db74">&#34;react-app&#34;</span>, <span style="color:#e6db74">&#34;react-app/jest&#34;</span>]
+  },
+  <span style="color:#f92672">&#34;browserslist&#34;</span>: {
+    <span style="color:#f92672">&#34;production&#34;</span>: [<span style="color:#e6db74">&#34;&gt;0.2%&#34;</span>, <span style="color:#e6db74">&#34;not dead&#34;</span>, <span style="color:#e6db74">&#34;not op_mini all&#34;</span>],
+    <span style="color:#f92672">&#34;development&#34;</span>: [
+      <span style="color:#e6db74">&#34;last 1 chrome version&#34;</span>,
+      <span style="color:#e6db74">&#34;last 1 firefox version&#34;</span>,
+      <span style="color:#e6db74">&#34;last 1 safari version&#34;</span>
+    ]
+  }
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rm -rf node_modules
+npm install
+npm start
 </code></pre></div>
 
 
@@ -808,19 +869,19 @@ Your project has been successfully initialized and connected to the cloud!
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1638434553"></script>
-    <script src="/js/perfect-scrollbar.min.js?1638434553"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1638434553"></script>
-    <script src="/js/jquery.sticky.js?1638434553"></script>
-    <script src="/js/featherlight.min.js?1638434553"></script>
-    <script src="/js/highlight.pack.js?1638434553"></script>
+    <script src="/js/clipboard.min.js?1644387090"></script>
+    <script src="/js/perfect-scrollbar.min.js?1644387090"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1644387090"></script>
+    <script src="/js/jquery.sticky.js?1644387090"></script>
+    <script src="/js/featherlight.min.js?1644387090"></script>
+    <script src="/js/highlight.pack.js?1644387090"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1638434553"></script>
-    <script src="/js/learn.js?1638434553"></script>
-    <script src="/js/hugo-learn.js?1638434553"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1644387090"></script>
+    <script src="/js/learn.js?1644387090"></script>
+    <script src="/js/hugo-learn.js?1644387090"></script>
 
-    <link href="/mermaid/mermaid.css?1638434553" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1638434553"></script>
+    <link href="/mermaid/mermaid.css?1644387090" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1644387090"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -12,20 +12,20 @@
     <title>6. API Gateway 와 Lambda 를 추가하여 Federation Token 가져오기 :: </title>
 
     
-    <link href="/css/nucleus.css?1638434553" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1638434553" rel="stylesheet">
-    <link href="/css/hybrid.css?1638434553" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1638434553" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1638434553" rel="stylesheet">
-    <link href="/css/auto-complete.css?1638434553" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1638434553" rel="stylesheet">
-    <link href="/css/theme.css?1638434553" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1638434553" rel="stylesheet">
+    <link href="/css/nucleus.css?1644387090" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1644387090" rel="stylesheet">
+    <link href="/css/hybrid.css?1644387090" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1644387090" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1644387090" rel="stylesheet">
+    <link href="/css/auto-complete.css?1644387090" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1644387090" rel="stylesheet">
+    <link href="/css/theme.css?1644387090" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1644387090" rel="stylesheet">
     
-      <link href="/css/theme-aws.css?1638434553" rel="stylesheet">
+      <link href="/css/theme-aws.css?1644387090" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1638434553"></script>
+    <script src="/js/jquery-3.3.1.min.js?1644387090"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1638434553"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1638434553"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1644387090"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1644387090"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1638434553"></script>
+<script type="text/javascript" src="/js/search.js?1644387090"></script>
 
     
   </div>
@@ -418,6 +418,7 @@
     <li>
       <ul>
         <li><a href="#amplify-add-api">Amplify Add API</a></li>
+        <li><a href="#local-코드-수정-및-테스트">Local 코드 수정 및 테스트</a></li>
       </ul>
     </li>
   </ul>
@@ -505,7 +506,16 @@ Some next steps:
 
 
 <ol start="3">
-<li>위 2번을 수행하던 중 선택한 Editor 로 Lambda Fuction 을 작성할 수 있습니다. 만약, Editor 가 자동으로 해당 파일을 열지 않았다면, 위 출력 결과를 기준으로 [프로젝트 루트 디렉토리]/<code>amplify/backend/function/ccplogin/src/app.js</code> 를 아래와 같이 수정합니다. 또한, 아래 소스코드 중 [Connect 인스턴스 ID] 로 표기된 부분은 실제 설치한 Connect 인스턴스 ID로 대체합니다.</li>
+<li>위 2번을 수행하던 중 선택한 Editor 로 Lambda Fuction 을 작성할 수 있습니다. 만약, Editor 가 자동으로 해당 파일을 열지 않았다면, 위 출력 결과를 기준으로 [프로젝트 루트 디렉토리]/<code>amplify/backend/function/ccplogin/src/app.js</code> 를 아래와 같이 수정합니다. 또한, 아래 소스코드 중 [Connect 인스턴스 ID] 로 표기된 부분은 실제 설치한 Connect 인스턴스 ID로 대체하며, [Account ID] 로 표기된 부분은 AWS 계정 어카운트 ID 를 입력합니다.
+<ul>
+<li>소스 코드 변경 부분 예시 (자신의 환경과 맞게 변경해야합니다. 아래 값은 단순히 예시일 뿐입니다. 입력 값에 브라켓 [,] 은 포함되지 않습니다.)
+<ul>
+<li>[Connect 인스턴스 ID] : ek0f046a-fcc7-4b62-84c5-4bf863c3900a</li>
+<li>[Account ID] : 102013334010</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/*
 </span><span style="color:#75715e">Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -515,145 +525,145 @@ Some next steps:
 </span><span style="color:#75715e">See the License for the specific language governing permissions and limitations under the License.
 </span><span style="color:#75715e">*/</span>
 
-<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;express&#39;</span>)
-<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">bodyParser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;body-parser&#39;</span>)
-<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">awsServerlessExpressMiddleware</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;aws-serverless-express/middleware&#39;</span>)
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;express&#34;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">bodyParser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;body-parser&#34;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">awsServerlessExpressMiddleware</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;aws-serverless-express/middleware&#34;</span>);
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">STSClient</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;aws-sdk/clients/sts&#39;</span>)
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ConnectClient</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;aws-sdk/clients/connect&#39;</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">STSClient</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;aws-sdk/clients/sts&#34;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ConnectClient</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;aws-sdk/clients/connect&#34;</span>);
 
 <span style="color:#75715e">// declare a new express app
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>()
-<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">bodyParser</span>.<span style="color:#a6e22e">json</span>())
-<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">awsServerlessExpressMiddleware</span>.<span style="color:#a6e22e">eventContext</span>())
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">bodyParser</span>.<span style="color:#a6e22e">json</span>());
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">awsServerlessExpressMiddleware</span>.<span style="color:#a6e22e">eventContext</span>());
 
 <span style="color:#75715e">// Enable CORS for all methods
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
-	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>, <span style="color:#e6db74">&#39;*&#39;</span>)
-	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#39;Access-Control-Allow-Headers&#39;</span>, <span style="color:#e6db74">&#39;*&#39;</span>)
-	<span style="color:#a6e22e">next</span>()
-})
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#34;Access-Control-Allow-Origin&#34;</span>, <span style="color:#e6db74">&#34;*&#34;</span>);
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#34;Access-Control-Allow-Headers&#34;</span>, <span style="color:#e6db74">&#34;*&#34;</span>);
+  <span style="color:#a6e22e">next</span>();
+});
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">utilfunc</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">email</span>) =&gt; {
-	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">STS</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">STSClient</span>()
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">STS</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">STSClient</span>();
 
-	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">instanceId</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;[Connect 인스턴스 ID]&#39;</span>
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">instanceId</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;[Connect 인스턴스 ID]&#34;</span>;
 
-	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">roleParams</span> <span style="color:#f92672">=</span> {
-		<span style="color:#a6e22e">RoleArn</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;arn:aws:iam::[Connect 인스턴스 ID]:role/CCPLogin&#39;</span>,
-		<span style="color:#a6e22e">RoleSessionName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">email</span>,
-		<span style="color:#a6e22e">DurationSeconds</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">900</span>,
-	}
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">roleParams</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">RoleArn</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;arn:aws:iam::[Account ID]:role/CCPLogin&#34;</span>,
+    <span style="color:#a6e22e">RoleSessionName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">email</span>,
+    <span style="color:#a6e22e">DurationSeconds</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">900</span>,
+  };
 
-	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">stsResult</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">STS</span>.<span style="color:#a6e22e">assumeRole</span>(<span style="color:#a6e22e">roleParams</span>)
-		.<span style="color:#a6e22e">promise</span>()
-		.<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt; {
-			<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>)
-		})
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">stsResult</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">STS</span>.<span style="color:#a6e22e">assumeRole</span>(<span style="color:#a6e22e">roleParams</span>)
+    .<span style="color:#a6e22e">promise</span>()
+    .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt; {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>);
+    });
 
-	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">stsResult</span>)
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">stsResult</span>);
 
-	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">accessParams</span> <span style="color:#f92672">=</span> {
-		<span style="color:#a6e22e">accessKeyId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stsResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">AccessKeyId</span>,
-		<span style="color:#a6e22e">secretAccessKey</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stsResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">SecretAccessKey</span>,
-		<span style="color:#a6e22e">sessionToken</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stsResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">SessionToken</span>,
-	}
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">accessParams</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">accessKeyId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stsResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">AccessKeyId</span>,
+    <span style="color:#a6e22e">secretAccessKey</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stsResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">SecretAccessKey</span>,
+    <span style="color:#a6e22e">sessionToken</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stsResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">SessionToken</span>,
+  };
 
-	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`accessParams: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">accessParams</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`accessParams: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">accessParams</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
 
-	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Connect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ConnectClient</span>(<span style="color:#a6e22e">accessParams</span>)
-	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">connectParams</span> <span style="color:#f92672">=</span> {
-		<span style="color:#a6e22e">InstanceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">instanceId</span>,
-	}
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Connect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ConnectClient</span>(<span style="color:#a6e22e">accessParams</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">connectParams</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">InstanceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">instanceId</span>,
+  };
 
-	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">connectResult</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Connect</span>.<span style="color:#a6e22e">getFederationToken</span>(<span style="color:#a6e22e">connectParams</span>)
-		.<span style="color:#a6e22e">promise</span>()
-		.<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt; {
-			<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;CCPLogin &gt;&gt; Connect&#39;</span>, <span style="color:#a6e22e">error</span>)
-		})
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">connectResult</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Connect</span>.<span style="color:#a6e22e">getFederationToken</span>(<span style="color:#a6e22e">connectParams</span>)
+    .<span style="color:#a6e22e">promise</span>()
+    .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt; {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;CCPLogin &gt;&gt; Connect&#34;</span>, <span style="color:#a6e22e">error</span>);
+    });
 
-	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ccpLoginParams</span> <span style="color:#f92672">=</span> {
-		<span style="color:#a6e22e">AccessToken</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">connectResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">AccessToken</span>,
-		<span style="color:#a6e22e">AccessTokenExpiration</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date(
-			<span style="color:#a6e22e">connectResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">AccessTokenExpiration</span>
-		).<span style="color:#a6e22e">getTime</span>(),
-		<span style="color:#a6e22e">RefreshToken</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">connectResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">RefreshToken</span>,
-		<span style="color:#a6e22e">RefreshTokenExpiration</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date(
-			<span style="color:#a6e22e">connectResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">RefreshTokenExpiration</span>
-		).<span style="color:#a6e22e">getTime</span>(),
-	}
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ccpLoginParams</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">AccessToken</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">connectResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">AccessToken</span>,
+    <span style="color:#a6e22e">AccessTokenExpiration</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date(
+      <span style="color:#a6e22e">connectResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">AccessTokenExpiration</span>
+    ).<span style="color:#a6e22e">getTime</span>(),
+    <span style="color:#a6e22e">RefreshToken</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">connectResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">RefreshToken</span>,
+    <span style="color:#a6e22e">RefreshTokenExpiration</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date(
+      <span style="color:#a6e22e">connectResult</span>.<span style="color:#a6e22e">Credentials</span>.<span style="color:#a6e22e">RefreshTokenExpiration</span>
+    ).<span style="color:#a6e22e">getTime</span>(),
+  };
 
-	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`ccpLoginParams: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">ccpLoginParams</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`ccpLoginParams: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">ccpLoginParams</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
 
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ccpLoginParams</span>
-}
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ccpLoginParams</span>;
+};
 
 <span style="color:#75715e">/**********************
 </span><span style="color:#75715e"> * Example get method *
 </span><span style="color:#75715e"> **********************/</span>
 
-<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/ccp/login/:userid&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
-	<span style="color:#75715e">// Add your code here
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">utilfunc</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">userid</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">result</span>) =&gt; {
-		<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ok&#39;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">ccpResult</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">result</span> })
-	})
-})
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/ccp/login/:userid&#34;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#75715e">// Add your code here
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">utilfunc</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">userid</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">result</span>) =&gt; {
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ok&#34;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">ccpResult</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">result</span> });
+  });
+});
 
-<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/ccp/login/:userid/*&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
-	<span style="color:#75715e">// Add your code here
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;get call succeed!&#39;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span> })
-})
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/ccp/login/:userid/*&#34;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#75715e">// Add your code here
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;get call succeed!&#34;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span> });
+});
 
 <span style="color:#75715e">/****************************
 </span><span style="color:#75715e"> * Example post method *
 </span><span style="color:#75715e"> ****************************/</span>
 
-<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/ccp/login/:userid&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
-	<span style="color:#75715e">// Add your code here
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;post call succeed!&#39;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span> })
-})
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#34;/ccp/login/:userid&#34;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#75715e">// Add your code here
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;post call succeed!&#34;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span> });
+});
 
-<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/ccp/login/:userid/*&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
-	<span style="color:#75715e">// Add your code here
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;post call succeed!&#39;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span> })
-})
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#34;/ccp/login/:userid/*&#34;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#75715e">// Add your code here
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;post call succeed!&#34;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span> });
+});
 
 <span style="color:#75715e">/****************************
 </span><span style="color:#75715e"> * Example put method *
 </span><span style="color:#75715e"> ****************************/</span>
 
-<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#39;/ccp/login/:userid&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
-	<span style="color:#75715e">// Add your code here
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;put call succeed!&#39;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span> })
-})
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;/ccp/login/:userid&#34;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#75715e">// Add your code here
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;put call succeed!&#34;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span> });
+});
 
-<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#39;/ccp/login/:userid/*&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
-	<span style="color:#75715e">// Add your code here
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;put call succeed!&#39;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span> })
-})
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;/ccp/login/:userid/*&#34;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#75715e">// Add your code here
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;put call succeed!&#34;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span> });
+});
 
 <span style="color:#75715e">/****************************
 </span><span style="color:#75715e"> * Example delete method *
 </span><span style="color:#75715e"> ****************************/</span>
 
-<span style="color:#a6e22e">app</span>.<span style="color:#66d9ef">delete</span>(<span style="color:#e6db74">&#39;/ccp/login/:userid&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
-	<span style="color:#75715e">// Add your code here
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;delete call succeed!&#39;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span> })
-})
+<span style="color:#a6e22e">app</span>.<span style="color:#66d9ef">delete</span>(<span style="color:#e6db74">&#34;/ccp/login/:userid&#34;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#75715e">// Add your code here
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;delete call succeed!&#34;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span> });
+});
 
-<span style="color:#a6e22e">app</span>.<span style="color:#66d9ef">delete</span>(<span style="color:#e6db74">&#39;/ccp/login/:userid/*&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
-	<span style="color:#75715e">// Add your code here
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;delete call succeed!&#39;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span> })
-})
+<span style="color:#a6e22e">app</span>.<span style="color:#66d9ef">delete</span>(<span style="color:#e6db74">&#34;/ccp/login/:userid/*&#34;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#75715e">// Add your code here
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;delete call succeed!&#34;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span> });
+});
 
 <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">3000</span>, <span style="color:#66d9ef">function</span> () {
-	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;App started&#39;</span>)
-})
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;App started&#34;</span>);
+});
 
 <span style="color:#75715e">// Export the app object. When executing the application local this does nothing. However,
 </span><span style="color:#75715e">// to port it to AWS Lambda we will create a wrapper around that will load the app from
 </span><span style="color:#75715e">// this file
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">app</span>
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">app</span>;
 </code></pre></div><ol start="4">
 <li>프로젝트 루트 디렉토리에서 아래 커멘드를 실행합니다. 완료하려면 수분동안 기다려야합니다.</li>
 </ol>
@@ -704,8 +714,20 @@ REST API endpoint: https://2vlz9asdz0.execute-api.us-east-1.amazonaws.com/dev
 </ol>
 <p><img src="images/02.png" alt=""></p>
 <p><img src="images/03.png" alt=""></p>
-<ol start="8">
-<li>src/component/ccp.component.jsx 를 아래와 같이 수정합니다.</li>
+<h3 id="local-코드-수정-및-테스트">Local 코드 수정 및 테스트</h3>
+<ol>
+<li>
+<p><code>src/component/ccp.component.jsx</code> 를 아래와 같이 수정합니다.</p>
+<ul>
+<li>소스 코드 변경 부분 예시 (자신의 환경과 맞게 변경해야합니다. 아래 값은 단순히 예시일 뿐입니다. 입력 값에 브라켓 [,] 은 포함되지 않습니다.)
+<ul>
+<li>[Connect 인스턴스 Domain] : <a href="https://testinstance.my.connect.aws" target="_blank">https://testinstance.my.connect.aws</a>
+</li>
+<li>[Connect 인스턴스 Region] : us-west-2</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
 <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Auth</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;aws-amplify&#39;</span>
@@ -731,9 +753,9 @@ REST API endpoint: https://2vlz9asdz0.execute-api.us-east-1.amazonaws.com/dev
 			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginFrm</span>.<span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">submit</span>()
 
             window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">initCCP</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>, {
-                <span style="color:#a6e22e">ccpUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://gonconnecttest.my.connect.aws/ccp-v2&#39;</span>,
+                <span style="color:#a6e22e">ccpUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[Connect 인스턴스 Domain]/ccp-v2&#39;</span>,
                 <span style="color:#a6e22e">loginPopup</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
-                <span style="color:#a6e22e">region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;us-east-1&#39;</span>,
+                <span style="color:#a6e22e">region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[Connect 인스턴스 Region]&#39;</span>,
                 <span style="color:#a6e22e">softphone</span><span style="color:#f92672">:</span> {
                     <span style="color:#a6e22e">allowFramedSoftphone</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
                     <span style="color:#a6e22e">disableRingtone</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
@@ -783,7 +805,7 @@ REST API endpoint: https://2vlz9asdz0.execute-api.us-east-1.amazonaws.com/dev
 						<span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;POST&#34;</span>
 						<span style="color:#a6e22e">target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden_iframe&#34;</span>
 						<span style="color:#a6e22e">action</span><span style="color:#f92672">=</span>{
-							<span style="color:#e6db74">&#39;https://gonconnecttest.my.connect.aws/auth/sign-in&#39;</span>
+							<span style="color:#e6db74">&#39;[Connect 인스턴스 Domain]/auth/sign-in&#39;</span>
 						}
 					&gt;
 						&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">htmlFor</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;credentials&#34;</span>&gt;<span style="color:#a6e22e">Credentials</span><span style="color:#f92672">:</span>&lt;/<span style="color:#f92672">label</span>&gt;
@@ -804,8 +826,8 @@ REST API endpoint: https://2vlz9asdz0.execute-api.us-east-1.amazonaws.com/dev
 }
 
 <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">CCP</span>
-</code></pre></div><ol start="9">
-<li>src/component/ccp.util.js 파일을 추가하고 아래와 같이 소스코드를 입력합니다.</li>
+</code></pre></div><ol start="2">
+<li><code>src/component/ccp.util.js</code> 파일을 추가하고 아래와 같이 소스코드를 입력합니다.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">API</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;aws-amplify&#39;</span>
 
@@ -819,10 +841,13 @@ REST API endpoint: https://2vlz9asdz0.execute-api.us-east-1.amazonaws.com/dev
 	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">result</span>
 }
 
-</code></pre></div><ol start="10">
+</code></pre></div><ol start="3">
 <li><code>npm start</code> 실행하여 테스트 합니다. 개인 정보 보호 브라우저 모드에서 http://localhost:3000 으로 접속하여, Cognito 계정으로 로그인 한 이후, CCP 가 아래와 같이 나타나면 정상입니다.</li>
 </ol>
 <p><img src="images/04.png" alt=""></p>
+<blockquote>
+<p><strong>CCP 를 웹사이트의 로그인 정보와 SAML 연동하여 두번의 로그인 없이 실행하는 것에 성공했습니다.</strong></p>
+</blockquote>
 
 
 
@@ -1063,19 +1088,19 @@ REST API endpoint: https://2vlz9asdz0.execute-api.us-east-1.amazonaws.com/dev
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1638434553"></script>
-    <script src="/js/perfect-scrollbar.min.js?1638434553"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1638434553"></script>
-    <script src="/js/jquery.sticky.js?1638434553"></script>
-    <script src="/js/featherlight.min.js?1638434553"></script>
-    <script src="/js/highlight.pack.js?1638434553"></script>
+    <script src="/js/clipboard.min.js?1644387090"></script>
+    <script src="/js/perfect-scrollbar.min.js?1644387090"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1644387090"></script>
+    <script src="/js/jquery.sticky.js?1644387090"></script>
+    <script src="/js/featherlight.min.js?1644387090"></script>
+    <script src="/js/highlight.pack.js?1644387090"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1638434553"></script>
-    <script src="/js/learn.js?1638434553"></script>
-    <script src="/js/hugo-learn.js?1638434553"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1644387090"></script>
+    <script src="/js/learn.js?1644387090"></script>
+    <script src="/js/hugo-learn.js?1644387090"></script>
 
-    <link href="/mermaid/mermaid.css?1638434553" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1638434553"></script>
+    <link href="/mermaid/mermaid.css?1644387090" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1644387090"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

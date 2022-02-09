@@ -12,20 +12,20 @@
     <title>3. CCP 구성 :: </title>
 
     
-    <link href="/css/nucleus.css?1638434553" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1638434553" rel="stylesheet">
-    <link href="/css/hybrid.css?1638434553" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1638434553" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1638434553" rel="stylesheet">
-    <link href="/css/auto-complete.css?1638434553" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1638434553" rel="stylesheet">
-    <link href="/css/theme.css?1638434553" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1638434553" rel="stylesheet">
+    <link href="/css/nucleus.css?1644387090" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1644387090" rel="stylesheet">
+    <link href="/css/hybrid.css?1644387090" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1644387090" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1644387090" rel="stylesheet">
+    <link href="/css/auto-complete.css?1644387090" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1644387090" rel="stylesheet">
+    <link href="/css/theme.css?1644387090" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1644387090" rel="stylesheet">
     
-      <link href="/css/theme-aws.css?1638434553" rel="stylesheet">
+      <link href="/css/theme-aws.css?1644387090" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1638434553"></script>
+    <script src="/js/jquery-3.3.1.min.js?1644387090"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1638434553"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1638434553"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1644387090"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1644387090"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1638434553"></script>
+<script type="text/javascript" src="/js/search.js?1644387090"></script>
 
     
   </div>
@@ -413,7 +413,16 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#approved-origin-등록">Approved Origin 등록</a></li>
+        <li><a href="#amazon-connect-streams-sdk">amazon-connect-streams SDK</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -442,6 +451,20 @@
 <blockquote>
 <p><strong>1장에서 구성한 기본 React App 에 CCP (Contact Control Panel) 을 추가합니다. CCP는 Amazon Connect 의 기본 소프트폰을 의미합니다.</strong></p>
 </blockquote>
+<h3 id="approved-origin-등록">Approved Origin 등록</h3>
+<ol>
+<li>AWS 콘솔에서 Amazon Connect 서비스로 이동합니다. Approved origins 메뉴를 선택합니다.</li>
+</ol>
+<p><img src="images/00-0.png" alt=""></p>
+<ol start="2">
+<li><strong>Add domain</strong> 버튼을 클릭합니다.</li>
+</ol>
+<p><img src="images/00-1.png" alt=""></p>
+<ol start="3">
+<li><code>http://localhost:3000</code> 을 입력합니다. <strong>Add domain</strong> 버튼을 클릭합니다.</li>
+</ol>
+<p><img src="images/00-2.png" alt=""></p>
+<h3 id="amazon-connect-streams-sdk">amazon-connect-streams SDK</h3>
 <ol>
 <li>
 <p>Connect 콘솔로 접속합니다. (AWS Console 의 Log in for emergency access 를 통해 로그인 가능합니다.) 아래 화면에서 표시된 곳의 아이콘을 클릭합니다.
@@ -459,7 +482,7 @@
 <ol start="3">
 <li>프로젝트 Root 디렉토리에서 amazon-connect-streams SDK 를 설치합니다.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; npm install amazon-connect-streams
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install amazon-connect-streams
 </code></pre></div><ol start="4">
 <li>
 <p>아래와 같이 코드를 수정합니다.</p>
@@ -468,18 +491,18 @@
 </ul>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">CCP</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./component/ccp/ccp.component&#39;</span>
-<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./App.css&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">CCP</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./component/ccp/ccp.component&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;./App.css&#34;</span>;
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
-	<span style="color:#66d9ef">return</span> (
-		<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
-			<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">CCP</span> <span style="color:#f92672">/&gt;</span>
-		<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
-	)
+  <span style="color:#66d9ef">return</span> (
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">CCP</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+  );
 }
 
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
 </code></pre></div><ol start="5">
 <li>
 <p>src/component/ccp 디렉토리를 만들고, 그 안에 ccp.component.jsx 파일을 생성합니다. 이후 아래와 같이 코드를 작성합니다. [인스턴스 URL] 은 <a href="/2.connect/">2.Amazon Connect 인스턴스 생성</a>
@@ -489,57 +512,57 @@
 </ul>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
-<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;amazon-connect-streams&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;amazon-connect-streams&#34;</span>;
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CCP</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
-	<span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
-		<span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>)
-		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createRef</span>()
-	}
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createRef</span>();
+  }
 
-	<span style="color:#a6e22e">componentDidMount</span>() {
-		window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">initCCP</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>, {
-			<span style="color:#a6e22e">ccpUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://[인스턴스 URL]/ccp-v2&#39;</span>,
-			<span style="color:#a6e22e">loginPopup</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
-			<span style="color:#a6e22e">region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;us-east-1&#39;</span>,
-			<span style="color:#a6e22e">softphone</span><span style="color:#f92672">:</span> {
-				<span style="color:#a6e22e">allowFramedSoftphone</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-				<span style="color:#a6e22e">disableRingtone</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
-			},
-		})
-	}
+  <span style="color:#a6e22e">componentDidMount</span>() {
+    window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">initCCP</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>, {
+      <span style="color:#a6e22e">ccpUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://[인스턴스 URL]/ccp-v2&#34;</span>,
+      <span style="color:#a6e22e">loginPopup</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+      <span style="color:#a6e22e">region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;us-east-1&#34;</span>,
+      <span style="color:#a6e22e">softphone</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">allowFramedSoftphone</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+        <span style="color:#a6e22e">disableRingtone</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+      },
+    });
+  }
 
-	<span style="color:#a6e22e">componentWillUnmount</span>() {
-		window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">terminate</span>()
-		<span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>) {
-			<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">iframe</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">firstElementChild</span>
-			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">removeChild</span>(<span style="color:#a6e22e">iframe</span>)
-		}
-	}
+  <span style="color:#a6e22e">componentWillUnmount</span>() {
+    window.<span style="color:#a6e22e">connect</span>.<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">terminate</span>();
+    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>) {
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">iframe</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">firstElementChild</span>;
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>.<span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">removeChild</span>(<span style="color:#a6e22e">iframe</span>);
+    }
+  }
 
-	<span style="color:#a6e22e">render</span>() {
-		<span style="color:#66d9ef">return</span> (
-			<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span>
-				<span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp-container&#34;</span>
-				<span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;800px&#39;</span>, <span style="color:#a6e22e">border</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2px solid&#39;</span> }}
-			<span style="color:#f92672">&gt;</span>
-				<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span>
-					<span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp&#34;</span>
-					<span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp&#34;</span>
-					<span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>}
-					<span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;100%&#39;</span>, <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;100%&#39;</span> }}
-				<span style="color:#f92672">/&gt;</span>
-			<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
-		)
-	}
+  <span style="color:#a6e22e">render</span>() {
+    <span style="color:#66d9ef">return</span> (
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span>
+        <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp-container&#34;</span>
+        <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;800px&#34;</span>, <span style="color:#a6e22e">border</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2px solid&#34;</span> }}
+      <span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span>
+          <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp&#34;</span>
+          <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccp&#34;</span>
+          <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ccp</span>}
+          <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;100%&#34;</span>, <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;100%&#34;</span> }}
+        <span style="color:#f92672">/&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+    );
+  }
 }
 
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">CCP</span>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">CCP</span>;
 </code></pre></div><ol start="6">
 <li>이후 프로젝트 Root 디렉토리에서 아래와 같이 빌드합니다.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; npm start
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">npm start
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Compiled successfully!
 
 You can now view ccp-amplify-react-demo in the browser.
@@ -559,7 +582,7 @@ To create a production build, use yarn build.
 </li>
 </ol>
 
-<div class="notices warning" ><p>위와 같이 소프트폰 화면이 나오지 않는다면, Connect Console 에 다시 로그인하고, 오른쪽 상단의 CCP 아이콘을 클릭하여 CCP (소프트폰)이 잘 팝업되는지 확인합니다.</p>
+<div class="notices warning" ><p>위와 같이 소프트폰 화면이 나오지 않는다면, Amazon Connect 콘솔에 다시 로그인하고, 오른쪽 상단의 CCP 아이콘을 클릭하여 CCP (소프트폰)이 잘 팝업되는지 확인합니다. 이후 다시 시도합니다. Amazon Connect 콘솔에 로그인한 브라우저의 다른 탭에서 시도해야합니다.</p>
 </div>
 
 
@@ -802,19 +825,19 @@ To create a production build, use yarn build.
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1638434553"></script>
-    <script src="/js/perfect-scrollbar.min.js?1638434553"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1638434553"></script>
-    <script src="/js/jquery.sticky.js?1638434553"></script>
-    <script src="/js/featherlight.min.js?1638434553"></script>
-    <script src="/js/highlight.pack.js?1638434553"></script>
+    <script src="/js/clipboard.min.js?1644387090"></script>
+    <script src="/js/perfect-scrollbar.min.js?1644387090"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1644387090"></script>
+    <script src="/js/jquery.sticky.js?1644387090"></script>
+    <script src="/js/featherlight.min.js?1644387090"></script>
+    <script src="/js/highlight.pack.js?1644387090"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1638434553"></script>
-    <script src="/js/learn.js?1638434553"></script>
-    <script src="/js/hugo-learn.js?1638434553"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1644387090"></script>
+    <script src="/js/learn.js?1644387090"></script>
+    <script src="/js/hugo-learn.js?1644387090"></script>
 
-    <link href="/mermaid/mermaid.css?1638434553" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1638434553"></script>
+    <link href="/mermaid/mermaid.css?1644387090" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1644387090"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
